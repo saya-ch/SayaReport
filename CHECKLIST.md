@@ -8,7 +8,7 @@
 - [ ] **阶段二 · 多 agent 并行信息检索与验证**：按 AGENT.md 2.4 启用多 agent 并行，对五大板块执行 2.1 多轮检索、2.3 多样搜索（含尝试不同搜索工具）、2.2 多渠道验证，达到第五章质量规范
 - [ ] **阶段三 · 前端设计与视觉素材**：按 AGENT.md 3.2/9.3 一定阅读前端设计文档 / 设计 skill，一定使用图片生成模型与视频生成模型。**分开产出两类内容**：① README 头图 `assets/banner.png`（含 Saya 猫娘形象，仅用于仓库主页/README 展示，报告页不得引用；生成失败时用 `assets/banner-default.png` 覆盖兜底）；② 报告页所需素材（插画、图片、视频等，供 `index.html` 内嵌使用）。**统一放入 `assets/` 静态资源文件夹**
 - [ ] **阶段四 · 生成 HTML 报告**：基于验证后的信息与素材，生成完整 `index.html`，符合 AGENT.md 第三章全部规范，完成移动端适配与视觉检查
-- [ ] **阶段五 · 部署与更新**：按 AGENT.md 9.1/9.2 完成 Git 配置、pull 同步、提交推送（含 `index.html`、本次报告页素材、README 头图 `banner.png`），验证 Pages 部署成功
+- [ ] **阶段五 · 部署与更新**：按 AGENT.md 9.1/9.2 完成 Git 配置、pull 同步、提交推送。**README 相关处理**：① 若本次生成了新 README 头图（`assets/banner.png`），随报告一并推送；② 若图片生成失败，用 `assets/banner-default.png` 复制覆盖 `assets/banner.png` 后推送；③ **除头图 `assets/banner.png` 外，不得更改 `README.md` 的任何其他内容**。推送内容含 `index.html`、本次报告页素材、README 头图 `banner.png`，验证 Pages 部署成功
 
 ## 10.2 打勾推进规则
 

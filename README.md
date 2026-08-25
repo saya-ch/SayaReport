@@ -9,9 +9,9 @@
   <img src="https://img.shields.io/github/repo-size/saya-ch/SayaReport?style=for-the-badge">
 </p>
 
-# SayaReport
+<h1 align="center">SayaReport</h1>
 
-面向中国石油大学（华东）理学院数据科学与大数据技术专业学生的专属求职与竞赛资讯报告，每日自动更新。
+<p align="center">面向中国石油大学（华东）理学院数据科学与大数据技术专业学生的专属求职与竞赛资讯报告，每日自动更新。</p>
 
 ## 查看报告
 

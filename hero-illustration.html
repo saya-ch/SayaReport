@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1920px; height: 1080px; overflow: hidden; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const W = 1920, H = 1080;
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+// Random seeded
+let seed = 42;
+function rand() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+
+// Draw gradient background
+function drawBg() {
+    const grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#fff0e6');
+    grad.addColorStop(0.25, '#ffd6d0');
+    grad.addColorStop(0.5, '#f5c8d4');
+    grad.addColorStop(0.75, '#e8c8e0');
+    grad.addColorStop(1, '#d8c0e8');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+}
+
+// Soft circles
+function drawSoftCircles() {
+    const circles = [
+        [300, 280, 280, 'rgba(255,180,160,0.15)'],
+        [1650, 200, 320, 'rgba(200,180,255,0.12)'],
+        [180, 750, 220, 'rgba(255,200,180,0.12)'],
+        [1700, 800, 260, 'rgba(180,200,255,0.12)'],
+        [960, 120, 200, 'rgba(255,220,180,0.08)'],
+        [1100, 950, 220, 'rgba(220,180,255,0.1)'],
+        [500, 500, 180, 'rgba(255,200,200,0.08)'],
+        [1400, 500, 200, 'rgba(200,180,255,0.08)'],
+    ];
+    circles.forEach(([x, y, r, c]) => {
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+        grad.addColorStop(0, c);
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+// Rounded rectangle
+function roundRect(x, y, w, h, r, fill, stroke, lw) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 2; ctx.stroke(); }
+}
+
+// Draw desk
+function drawDesk() {
+    // Desk top
+    const grad = ctx.createLinearGradient(480, 610, 480, 635);
+    grad.addColorStop(0, '#dbb896');
+    grad.addColorStop(1, '#c8a47e');
+    roundRect(480, 610, 960, 25, 8, grad);
+    // Highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.fillRect(490, 613, 940, 4);
+    // Legs
+    roundRect(530, 635, 35, 160, 4, '#b8956e');
+    roundRect(1355, 635, 35, 160, 4, '#b8956e');
+    // Cross support
+    ctx.strokeStyle = '#b8956e';
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo(565, 730);
+    ctx.lineTo(1355, 730);
+    ctx.stroke();
+}
+
+// Draw cat character
+function drawCat() {
+    const cx = 420, cy = 340;
+    const hr = 85;
+
+    // Hair behind head
+    ctx.fillStyle = '#7a4a28';
+    ctx.beginPath();
+    ctx.ellipse(cx, cy - 5, hr + 18, hr + 10, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Hair sides (long hair)
+    ctx.beginPath();
+    ctx.ellipse(cx - hr - 12, cy + 30, 30, 70, 0.1, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(cx + hr + 12, cy + 30, 30, 70, -0.1, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Cat ears
+    // Left ear
+    ctx.fillStyle = '#ffe4c4';
+    ctx.beginPath();
+    ctx.moveTo(cx - 55, cy - hr + 10);
+    ctx.lineTo(cx - 25, cy - hr - 55);
+    ctx.lineTo(cx + 5, cy - hr + 15);
+    ctx.closePath();
+    ctx.fill();
+    // Left ear inner
+    ctx.fillStyle = '#ffb0b0';
+    ctx.beginPath();
+    ctx.moveTo(cx - 45, cy - hr + 15);
+    ctx.lineTo(cx - 25, cy - hr - 35);
+    ctx.lineTo(cx - 5, cy - hr + 18);
+    ctx.closePath();
+    ctx.fill();
+
+    // Right ear
+    ctx.fillStyle = '#ffe4c4';
+    ctx.beginPath();
+    ctx.moveTo(cx + 55, cy - hr + 10);
+    ctx.lineTo(cx + 25, cy - hr - 55);
+    ctx.lineTo(cx - 5, cy - hr + 15);
+    ctx.closePath();
+    ctx.fill();
+    // Right ear inner
+    ctx.fillStyle = '#ffb0b0';
+    ctx.beginPath();
+    ctx.moveTo(cx + 45, cy - hr + 15);
+    ctx.lineTo(cx + 25, cy - hr - 35);
+    ctx.lineTo(cx + 5, cy - hr + 18);
+    ctx.closePath();
+    ctx.fill();
+
+    // Head
+    ctx.fillStyle = '#ffe4c4';
+    ctx.beginPath();
+    ctx.arc(cx, cy, hr, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Hair bangs
+    ctx.fillStyle = '#7a4a28';
+    ctx.beginPath();
+    ctx.ellipse(cx, cy - hr + 10, hr + 8, 40, 0, Math.PI, Math.PI * 2);
+    ctx.fill();
+    // Hair strands
+    ctx.beginPath();
+    ctx.ellipse(cx - 30, cy - hr + 5, 25, 20, 0.3, Math.PI, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(cx + 30, cy - hr + 5, 25, 20, -0.3, Math.PI, Math.PI * 2);
+    ctx.fill();
+
+    // Hair highlight
+    ctx.fillStyle = '#a06830';
+    ctx.beginPath();
+    ctx.ellipse(cx - 35, cy - hr + 15, 8, 25, 0.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Eyes (big anime style)
+    const eyeY = cy + 10;
+    [-32, 32].forEach(dx => {
+        const ex = cx + dx;
+        // Eye white
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.ellipse(ex, eyeY, 20, 16, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Iris
+        ctx.fillStyle = '#6e3d9e';
+        ctx.beginPath();
+        ctx.ellipse(ex, eyeY + 2, 15, 14, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Pupil
+        ctx.fillStyle = '#2a1040';
+        ctx.beginPath();
+        ctx.ellipse(ex, eyeY + 4, 7, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Highlights
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.ellipse(ex - 3, eyeY - 6, 5, 4, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(ex + 4, eyeY + 4, 3, 3, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Light purple highlight
+        ctx.fillStyle = 'rgba(200,180,255,0.6)';
+        ctx.beginPath();
+        ctx.ellipse(ex + 3, eyeY + 6, 4, 3, 0, 0, Math.PI * 2);
+        ctx.fill();
+        // Eye outline
+        ctx.strokeStyle = '#503220';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(ex, eyeY + 2, 16, 15, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        // Eyelashes
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(ex - 18, eyeY - 4);
+        ctx.lineTo(ex - 22, eyeY - 10);
+        ctx.moveTo(ex + 18, eyeY - 4);
+        ctx.lineTo(ex + 22, eyeY - 10);
+        ctx.stroke();
+    });
+
+    // Blush
+    ctx.fillStyle = 'rgba(255,150,150,0.25)';
+    ctx.beginPath();
+    ctx.ellipse(cx - 55, eyeY + 15, 22, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(cx + 55, eyeY + 15, 22, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Nose
+    ctx.fillStyle = '#ffb0b0';
+    ctx.beginPath();
+    ctx.moveTo(cx, cy + 28);
+    ctx.lineTo(cx - 6, cy + 35);
+    ctx.lineTo(cx + 6, cy + 35);
+    ctx.closePath();
+    ctx.fill();
+
+    // Mouth
+    ctx.strokeStyle = '#d08080';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx - 10, cy + 42, 10, 0, Math.PI * 0.85);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(cx + 10, cy + 42, 10, Math.PI * 0.15, Math.PI);
+    ctx.stroke();
+
+    // Whiskers
+    ctx.strokeStyle = 'rgba(180,140,100,0.6)';
+    ctx.lineWidth = 1.5;
+    for (let i = -1; i <= 1; i++) {
+        ctx.beginPath();
+        ctx.moveTo(cx - 40, cy + 30 + i * 10);
+        ctx.lineTo(cx - 75, cy + 25 + i * 15);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(cx + 40, cy + 30 + i * 10);
+        ctx.lineTo(cx + 75, cy + 25 + i * 15);
+        ctx.stroke();
+    }
+
+    // Body (purple dress)
+    const bodyTop = cy + hr - 10;
+    const bodyBot = cy + hr + 110;
+    ctx.fillStyle = '#b878d0';
+    ctx.beginPath();
+    ctx.moveTo(cx - 50, bodyTop);
+    ctx.quadraticCurveTo(cx - 90, bodyTop + 60, cx - 85, bodyBot);
+    ctx.lineTo(cx + 85, bodyBot);
+    ctx.quadraticCurveTo(cx + 90, bodyTop + 60, cx + 50, bodyTop);
+    ctx.closePath();
+    ctx.fill();
+
+    // Dress highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    ctx.beginPath();
+    ctx.moveTo(cx - 30, bodyTop);
+    ctx.quadraticCurveTo(cx - 50, bodyTop + 50, cx - 40, bodyBot - 10);
+    ctx.lineTo(cx - 10, bodyBot - 10);
+    ctx.quadraticCurveTo(cx - 20, bodyTop + 50, cx - 10, bodyTop);
+    ctx.closePath();
+    ctx.fill();
+
+    // Collar
+    ctx.fillStyle = '#ffe4c4';
+    ctx.beginPath();
+    ctx.moveTo(cx - 22, bodyTop + 5);
+    ctx.lineTo(cx, bodyTop + 35);
+    ctx.lineTo(cx + 22, bodyTop + 5);
+    ctx.closePath();
+    ctx.fill();
+
+    // Bow
+    ctx.fillStyle = '#ff8c8c';
+    ctx.beginPath();
+    ctx.ellipse(cx - 18, bodyTop + 15, 14, 9, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(cx + 18, bodyTop + 15, 14, 9, 0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#ff6060';
+    ctx.beginPath();
+    ctx.arc(cx, bodyTop + 15, 6, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Arms
+    ctx.fillStyle = '#ffe4c4';
+    // Left arm (resting on desk)
+    ctx.beginPath();
+    ctx.ellipse(cx - 70, bodyTop + 55, 22, 40, 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    // Right arm (raised/waving slightly)
+    ctx.beginPath();
+    ctx.ellipse(cx + 75, bodyTop + 40, 20, 38, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    // Hand
+    ctx.beginPath();
+    ctx.arc(cx + 85, bodyTop + 15, 14, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// Draw laptop
+function drawLaptop(x, y, w, h) {
+    // Screen
+    roundRect(x, y, w, h, 10, '#3c3c50');
+    // Screen inner
+    roundRect(x + 8, y + 8, w - 16, h - 16, 6, '#2a3040');
+
+    // Code lines on screen
+    const colors = ['#64dc96', '#64a0ff', '#ffdc64', '#ff96b4', '#64dc96', '#64a0ff'];
+    for (let i = 0; i < 7; i++) {
+        const indent = i === 0 ? 10 : (10 + rand() * 25);
+        const lw = 30 + rand() * (w - indent - 40);
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.globalAlpha = 0.8;
+        roundRect(x + indent, y + 16 + i * 16, lw, 5, 2, colors[i % colors.length]);
+        ctx.globalAlpha = 1;
+    }
+
+    // Keyboard
+    roundRect(x - 15, y + h, w + 30, 18, 5, '#b8b8c8');
+    // Keyboard keys
+    ctx.fillStyle = '#a0a0b0';
+    for (let i = 0; i < 12; i++) {
+        roundRect(x - 10 + i * 16, y + h + 4, 12, 10, 2, '#a0a0b0');
+    }
+}
+
+// Draw bar chart
+function drawBarChart(x, y, w, h) {
+    const n = 6;
+    const bw = w / (n * 2);
+    const gap = bw;
+    const colors = ['#ff9696', '#96c8ff', '#ffcc64', '#b896ff', '#96e6b4', '#ffb4c8'];
+
+    // Background card
+    roundRect(x - 10, y - 10, w + 20, h + 30, 10, 'rgba(255,255,255,0.6)');
+
+    for (let i = 0; i < n; i++) {
+        const bh = 20 + rand() * (h - 30);
+        const bx = x + i * (bw + gap);
+        const by = y + h - bh;
+        roundRect(bx, by, bw, bh, 5, colors[i]);
+    }
+}
+
+// Draw pie chart
+function drawPieChart(cx, cy, r) {
+    // Background card
+    roundRect(cx - r - 15, cy - r - 15, (r + 15) * 2, (r + 15) * 2, 12, 'rgba(255,255,255,0.6)');
+
+    const colors = ['#ff9696', '#96c8ff', '#ffcc64', '#b896ff'];
+    const portions = [0.3, 0.25, 0.25, 0.2];
+    let start = -Math.PI / 2;
+    portions.forEach((p, i) => {
+        const end = start + p * Math.PI * 2;
+        ctx.fillStyle = colors[i];
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, end);
+        ctx.closePath();
+        ctx.fill();
+        start = end;
+    });
+    // Center hole
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.beginPath();
+    ctx.arc(cx, cy, r * 0.5, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// Draw line chart
+function drawLineChart(x, y, w, h, color) {
+    // Background card
+    roundRect(x - 10, y - 10, w + 20, h + 20, 10, 'rgba(255,255,255,0.6)');
+
+    const n = 8;
+    const points = [];
+    for (let i = 0; i < n; i++) {
+        points.push([
+            x + (i / (n - 1)) * w,
+            y + 10 + rand() * (h - 25)
+        ]);
+    }
+
+    // Area fill
+    ctx.fillStyle = color.replace(')', ',0.12)').replace('rgb', 'rgba');
+    ctx.beginPath();
+    ctx.moveTo(points[0][0], y + h);
+    points.forEach(p => ctx.lineTo(p[0], p[1]));
+    ctx.lineTo(points[n-1][0], y + h);
+    ctx.closePath();
+    ctx.fill();
+
+    // Line
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    points.forEach((p, i) => i === 0 ? ctx.moveTo(p[0], p[1]) : ctx.lineTo(p[0], p[1]));
+    ctx.stroke();
+
+    // Dots
+    points.forEach(p => {
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.arc(p[0], p[1], 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(p[0], p[1], 3.5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+// Draw trophy
+function drawTrophy(x, y, s) {
+    // Cup
+    const grad = ctx.createLinearGradient(x - s*0.3, y - s*0.6, x + s*0.3, y + s*0.3);
+    grad.addColorStop(0, '#ffdc64');
+    grad.addColorStop(0.5, '#ffb400');
+    grad.addColorStop(1, '#cc8800');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.moveTo(x - s*0.3, y - s*0.6);
+    ctx.quadraticCurveTo(x - s*0.35, y + s*0.1, x - s*0.25, y + s*0.2);
+    ctx.lineTo(x + s*0.25, y + s*0.2);
+    ctx.quadraticCurveTo(x + s*0.35, y + s*0.1, x + s*0.3, y - s*0.6);
+    ctx.closePath();
+    ctx.fill();
+    // Top rim
+    ctx.fillStyle = '#ffe060';
+    ctx.beginPath();
+    ctx.ellipse(x, y - s*0.6, s*0.32, s*0.08, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // Handles
+    ctx.strokeStyle = '#cc9900';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(x - s*0.4, y - s*0.2, s*0.15, Math.PI*0.5, Math.PI*1.5);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x + s*0.4, y - s*0.2, s*0.15, -Math.PI*0.5, Math.PI*0.5);
+    ctx.stroke();
+    // Base
+    ctx.fillStyle = '#cc9900';
+    roundRect(x - s*0.08, y + s*0.2, s*0.16, s*0.15, 2, '#cc9900');
+    roundRect(x - s*0.2, y + s*0.35, s*0.4, s*0.1, 4, '#b88800');
+    // Star on cup
+    drawStar(x, y - s*0.3, s*0.12, '#fff', 0.7);
+}
+
+function drawStar(x, y, r, color, alpha) {
+    ctx.fillStyle = color;
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    for (let i = 0; i < 10; i++) {
+        const angle = (i * Math.PI / 5) - Math.PI / 2;
+        const rad = i % 2 === 0 ? r : r * 0.4;
+        const px = x + rad * Math.cos(angle);
+        const py = y + rad * Math.sin(angle);
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalAlpha = 1;
+}
+
+// Draw briefcase
+function drawBriefcase(x, y, s) {
+    roundRect(x - s*0.4, y - s*0.25, s*0.8, s*0.6, 8, '#648cc8', '#4a6da0', 2);
+    // Handle
+    ctx.strokeStyle = '#4a6da0';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(x, y - s*0.35, s*0.12, Math.PI, Math.PI * 2);
+    ctx.stroke();
+    // Clasp
+    ctx.fillStyle = '#ffdc64';
+    roundRect(x - 4, y - 3, 8, 8, 2, '#ffdc64');
+}
+
+// Draw code icon
+function drawCodeIcon(x, y, s) {
+    ctx.strokeStyle = '#64dc96';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    // <
+    ctx.beginPath();
+    ctx.moveTo(x - s*0.3, y);
+    ctx.lineTo(x - s*0.05, y - s*0.25);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - s*0.05, y - s*0.25);
+    ctx.lineTo(x - s*0.05, y + s*0.25);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - s*0.05, y + s*0.25);
+    ctx.lineTo(x - s*0.3, y);
+    ctx.stroke();
+    // >
+    ctx.beginPath();
+    ctx.moveTo(x + s*0.3, y);
+    ctx.lineTo(x + s*0.05, y - s*0.25);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x + s*0.05, y - s*0.25);
+    ctx.lineTo(x + s*0.05, y + s*0.25);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x + s*0.05, y + s*0.25);
+    ctx.lineTo(x + s*0.3, y);
+    ctx.stroke();
+    // / in middle
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(x - s*0.08, y - s*0.3);
+    ctx.lineTo(x + s*0.08, y + s*0.3);
+    ctx.stroke();
+}
+
+// Draw check mark
+function drawCheck(x, y, r, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x - r*0.5, y);
+    ctx.lineTo(x - r*0.1, y + r*0.4);
+    ctx.lineTo(x + r*0.5, y - r*0.35);
+    ctx.stroke();
+}
+
+// Draw floating stars
+function drawFloatingStars() {
+    const stars = [
+        [180, 130, 14, 'rgba(255,220,80,0.7)'],
+        [380, 180, 10, 'rgba(255,180,180,0.6)'],
+        [1700, 130, 12, 'rgba(200,180,255,0.7)'],
+        [1800, 350, 9, 'rgba(255,200,100,0.5)'],
+        [120, 950, 11, 'rgba(180,220,255,0.6)'],
+        [1600, 920, 8, 'rgba(255,180,200,0.5)'],
+        [850, 80, 7, 'rgba(200,255,200,0.4)'],
+        [1200, 1000, 10, 'rgba(255,200,255,0.5)'],
+        [60, 400, 6, 'rgba(255,220,180,0.4)'],
+        [1850, 700, 8, 'rgba(200,220,255,0.5)'],
+    ];
+    stars.forEach(([x, y, r, c]) => {
+        ctx.fillStyle = c;
+        ctx.beginPath();
+        for (let i = 0; i < 10; i++) {
+            const angle = (i * Math.PI / 5) - Math.PI / 2;
+            const rad = i % 2 === 0 ? r : r * 0.4;
+            const px = x + rad * Math.cos(angle);
+            const py = y + rad * Math.sin(angle);
+            i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+    });
+}
+
+// Draw floating info cards
+function drawInfoCards() {
+    // Card 1 - right side
+    roundRect(1470, 420, 170, 100, 14, 'rgba(255,255,255,0.7)');
+    for (let i = 0; i < 4; i++) {
+        ctx.fillStyle = `rgba(${180+i*20},${160+i*10},${220-i*10},0.5)`;
+        roundRect(1485, 438 + i * 18, 60 + rand() * 80, 6, 3, ctx.fillStyle);
+    }
+
+    // Card 2 - left bottom
+    roundRect(80, 680, 150, 85, 14, 'rgba(255,255,255,0.6)');
+    for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = 'rgba(180,190,220,0.5)';
+        roundRect(95, 698 + i * 20, 50 + rand() * 70, 6, 3, ctx.fillStyle);
+    }
+
+    // Card 3 - right bottom
+    roundRect(1580, 660, 140, 80, 14, 'rgba(255,255,255,0.55)');
+    for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = 'rgba(200,180,220,0.5)';
+        roundRect(1595, 678 + i * 18, 40 + rand() * 70, 5, 3, ctx.fillStyle);
+    }
+}
+
+// Draw bubbles
+function drawBubbles() {
+    for (let i = 0; i < 30; i++) {
+        const bx = rand() * W;
+        const by = rand() * H;
+        const br = 3 + rand() * 8;
+        const alpha = 0.1 + rand() * 0.15;
+        const hue = rand() * 360;
+        ctx.fillStyle = `hsla(${hue}, 60%, 80%, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(bx, by, br, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// Draw desk items
+function drawDeskItems() {
+    // Notebook / notebook stack
+    roundRect(900, 565, 80, 45, 6, '#ff96b4');
+    roundRect(905, 558, 80, 45, 6, '#ffb8d0');
+    // Pencil holder
+    roundRect(850, 570, 25, 40, 4, '#a0c0ff');
+    ctx.fillStyle = '#808080';
+    ctx.fillRect(853, 555, 3, 30);
+    ctx.fillRect(857, 558, 3, 27);
+    ctx.fillRect(861, 553, 3, 32);
+    ctx.fillStyle = '#ffcc64';
+    ctx.fillRect(853, 550, 3, 10);
+    ctx.fillStyle = '#ff6464';
+    ctx.fillRect(857, 553, 3, 10);
+
+    // Coffee mug
+    roundRect(1380, 565, 30, 38, 5, '#fff');
+    ctx.strokeStyle = '#ddd';
+    ctx.lineWidth = 2;
+    roundRect(1380, 565, 30, 38, 5, null, '#ddd', 2);
+    // Mug handle
+    ctx.strokeStyle = '#ddd';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(1416, 584, 10, -Math.PI*0.4, Math.PI*0.4);
+    ctx.stroke();
+    // Steam
+    ctx.strokeStyle = 'rgba(200,200,200,0.4)';
+    ctx.lineWidth = 1.5;
+    for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        const sx = 1386 + i * 8;
+        ctx.moveTo(sx, 562);
+        ctx.quadraticCurveTo(sx - 4, 545, sx + 2, 530);
+        ctx.stroke();
+    }
+}
+
+// Main render
+function render() {
+    drawBg();
+    drawSoftCircles();
+    drawBubbles();
+    drawFloatingStars();
+
+    drawInfoCards();
+    drawDesk();
+    drawDeskItems();
+
+    // Laptop
+    drawLaptop(560, 440, 220, 145);
+
+    // Charts
+    drawBarChart(830, 430, 190, 140);
+    drawPieChart(1100, 520, 55);
+    drawLineChart(1170, 420, 170, 110, 'rgb(150,130,220)');
+
+    drawCat();
+
+    // Floating icons
+    drawTrophy(1500, 210, 80);
+    drawBriefcase(1660, 360, 60);
+    drawCodeIcon(220, 350, 55);
+
+    drawCheck(1720, 530, 22, '#64dc96');
+    drawStar(130, 520, 18, '#ffcc64', 0.7);
+    drawCheck(370, 200, 18, '#96c8ff');
+    drawTrophy(280, 850, 50);
+    drawBriefcase(1580, 820, 45);
+
+    // Small document icon
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    roundRect(1730, 250, 40, 50, 5, 'rgba(255,255,255,0.7)', 'rgba(180,180,200,0.5)', 1.5);
+    ctx.fillStyle = '#b0b0c0';
+    for (let i = 0; i < 4; i++) {
+        ctx.fillRect(1738, 260 + i * 10, 24, 3);
+    }
+
+    // Lightbulb icon
+    ctx.fillStyle = 'rgba(255,220,80,0.7)';
+    ctx.beginPath();
+    ctx.arc(120, 180, 16, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,220,80,0.3)';
+    ctx.beginPath();
+    ctx.arc(120, 180, 28, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,200,80,0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(120, 180, 28, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Heart icon
+    ctx.fillStyle = 'rgba(255,150,170,0.5)';
+    ctx.beginPath();
+    const hx = 1750, hy = 480, hs = 12;
+    ctx.moveTo(hx, hy + hs * 0.3);
+    ctx.bezierCurveTo(hx - hs * 1.5, hy - hs * 0.8, hx - hs * 0.5, hy - hs * 1.8, hx, hy - hs * 0.5);
+    ctx.bezierCurveTo(hx + hs * 0.5, hy - hs * 1.8, hx + hs * 1.5, hy - hs * 0.8, hx, hy + hs * 0.3);
+    ctx.fill();
+
+    // Vignette
+    const vignetteGrad = ctx.createRadialGradient(W/2, H/2, Math.min(W,H)*0.3, W/2, H/2, Math.max(W,H)*0.7);
+    vignetteGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    vignetteGrad.addColorStop(1, 'rgba(50,30,30,0.08)');
+    ctx.fillStyle = vignetteGrad;
+    ctx.fillRect(0, 0, W, H);
+}
+
+render();
+</script>
+</body>
+</html>

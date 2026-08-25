@@ -308,10 +308,10 @@
 
 ```
 # 公开信息，可直接写死
-REPO_URL="https://github.com/saya-ch/saya-s-daily-report.git"
+REPO_URL="https://github.com/saya-ch/SayaReport.git"
 BRANCH="main"
 FILE="./index.html"
-PAGES_URL="https://saya-ch.github.io/saya-s-daily-report/"
+PAGES_URL="https://saya-ch.github.io/sayareport/"
 
 # 敏感信息：必须从环境变量 / Secret 读取
 PAT="${SAYA_GITHUB_PAT}"          # GitHub Personal Access Token（最高机密）

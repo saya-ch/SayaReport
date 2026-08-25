@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="banner.png" alt="SayaReport Banner" width="100%">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/GitHub%20Pages-自动部署-blue?style=for-the-badge">
+  <img src="https://img.shields.io/github/license/saya-ch/SayaReport?style=for-the-badge">
+  <img src="https://img.shields.io/github/last-commit/saya-ch/SayaReport?style=for-the-badge">
+  <img src="https://img.shields.io/github/repo-size/saya-ch/SayaReport?style=for-the-badge">
+</p>
+
 # SayaReport
 
 Saya 专属自动化资讯监测系统，面向中国石油大学（华东）理学院 2024 级数据科学与大数据技术专业学生。由 AI 助手 Saya 定时运行，权威整合求职、竞赛、实习、就业等资讯，精准匹配 AI Agent / AI 应用、算法、数据分析、大数据、后端/全栈等求职方向，并自动生成高品质 HTML 网页报告，部署到 GitHub Pages 每日定时更新。
@@ -25,6 +36,7 @@ Saya 专属自动化资讯监测系统，面向中国石油大学（华东）理
 | AGENT.md | Saya 的完整工作规范（核心文件），定义身份角色、任务优先级、信息检索验证流程、报告输出设计规范、内容板块、信息质量规范、语气规范与自动部署流程 |
 | PROMPT.md | 精简引导提示词，引导 Saya 拉取仓库、读取 AGENT.md 并严格执行 |
 | index.html | 每次任务生成的求职信息报告页面，自动覆盖更新 |
+| banner.png | 项目头图 |
 | README.md | 项目说明 |
 
 ## 快速开始
@@ -61,4 +73,4 @@ SAYA_GITHUB_EMAIL    # 提交邮箱（建议使用 noreply 隐私邮箱）
 
 ## 许可
 
-本项目仅供学习与个人使用。
+本项目基于 [MIT License](LICENSE) 发布。

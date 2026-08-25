@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.png" alt="SayaReport Banner" width="100%">
+  <img src="assets/banner.png" alt="SayaReport Banner" width="100%">
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@ Saya 专属自动化资讯监测系统，面向中国石油大学（华东）理
 | AGENT.md | Saya 的完整工作规范（核心文件），定义身份角色、任务优先级、信息检索验证流程、报告输出设计规范、内容板块、信息质量规范、语气规范与自动部署流程 |
 | PROMPT.md | 精简引导提示词，引导 Saya 拉取仓库、读取 AGENT.md 并严格执行 |
 | index.html | 每次任务生成的求职信息报告页面，自动覆盖更新 |
-| banner.png | 项目头图 |
+| assets/ | 静态资源文件夹，存放头图及本次生成的图片、视频等素材 |
 | README.md | 项目说明 |
 
 ## 快速开始
@@ -67,7 +67,7 @@ SAYA_GITHUB_EMAIL    # 提交邮箱（建议使用 noreply 隐私邮箱）
 
 ## 维护说明
 
-- 每次提交仅添加本次生成的报告文件（index.html 及素材），不删除、覆盖或改动 AGENT.md、PROMPT.md 指导文件
+- 每次提交仅添加本次生成的报告文件（index.html 及 assets/ 中的素材），不删除、覆盖或改动 AGENT.md、PROMPT.md 指导文件
 - 每次报告均基于全新检索独立生成，不参考或复用历史报告
 - 信息检索与验证质量优先于一切，宁可不出报告也不输出错误、过时或未经核实的信息
 

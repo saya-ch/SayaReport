@@ -1,0 +1,298 @@
+{
+  "section": "面试准备资讯",
+  "items": [
+    {
+      "title": "2026大厂大模型/Agent面试题汇总（字节、腾讯、阿里等30+面经）",
+      "url": "https://blog.csdn.net/weixin_44151034/article/details/161729146",
+      "publish_date": "2026-06-24",
+      "summary": "汇总2026年字节跳动、腾讯、阿里、小米、美团等大厂的大模型/Agent方向面试题。涵盖ReAct框架细节、RLHF三阶段训练、工具调用死循环处理、MCP/A2A多智能体协作、记忆系统设计等核心考点。每道题附完整回答思路，是Agent方向求职者必备面经。",
+      "category": "面经",
+      "sources_count": 30,
+      "credibility": "高"
+    },
+    {
+      "title": "秋招实录：连面3场AI-Agent后端岗，踩完坑才懂大厂真正考察什么",
+      "url": "https://www.nowcoder.com/enterprise/138/interview",
+      "publish_date": "2026-08-19",
+      "summary": "27届本科Java后端转AI Agent方向的真实面经。详细记录网易Agent后端一面（LangChain/LlamaIndex框架选型、RAG向量库分片）、腾讯等3场面试全流程。重点考察Agent多工具调用输出校验、RAG检索优化等工程落地问题，对2028届实习求职极具参考价值。",
+      "category": "面经",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "2026最全大模型面经汇总｜Agent面试题、RAG面试题、Transformer面试题合集",
+      "url": "https://programmercarl.com/qita/0022.llminterview.html",
+      "publish_date": "2026-08",
+      "summary": "覆盖7大方向、15篇专题面经、100+道高频面试题的系统性资源。包含Agent开发（第一高频方向）、RAG检索增强、Transformer原理、模型微调、AI编程等板块，每道题附回答思路而非死答案。提供kamacoder面经汇总链接，持续更新中。",
+      "category": "高价值资料",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "AI智能体开发面试从入门到Offer：面试刷题、STAR话术、项目包装、薪资谈判",
+      "url": "https://blog.csdn.net/qq_16038125/article/details/163259633",
+      "publish_date": "2026-07-28",
+      "summary": "完整的AI Agent求职通关指南，包含2026年市场分析（字节/小红书/百度等大厂JD拆解）、技能优先级矩阵、6阶段7-9个月学习路线图、RAG模块/Agent编排/工具调用/记忆系统等8个核心模块的STAR面试话术模板。特别适合应届生系统备考。",
+      "category": "学习路径",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "小红书AI Agent开发一面面经（含完整答案）+ 小红书多模态算法实习面经",
+      "url": "https://www.nowcoder.com/enterprise/715/interview",
+      "publish_date": "2026-08-12",
+      "summary": "牛客网小红书面经专区，包含AI Agent开发一面完整题目与参考答案，以及多模态算法实习面经。Agent面经重点考察自我介绍闭环、项目深度、Agent与RAG区别、Function Calling原理等；算法面经涉及PPO/DPO/GRPO对齐算法、GAE原理等高频考点。",
+      "category": "面经",
+      "sources_count": 2,
+      "credibility": "高"
+    },
+    {
+      "title": "我的AI Agent面试复盘：3个offer背后的关键考点总结",
+      "url": "https://blog.51cto.com/u_16099277/14713603",
+      "publish_date": "2026-06-24",
+      "summary": "三年后端经验转AI Agent方向，拿到3个大厂offer的真实复盘。详细拆解三轮面试考点：一面考察框架选型（LangChain劣势分析）、常见失败场景（工具调用失败/上下文溢出/目标漂移）、ReAct/CoT/ToT实战对比；二面系统设计（智能客服Agent分层架构）；三面行业洞察。",
+      "category": "面经",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "数据科学家面试AI辅助：统计、机器学习、业务题备考全攻略",
+      "url": "https://www.mianlingai.com/blog/data-scientist-interview-ai-guide-2026/",
+      "publish_date": "2026-06-21",
+      "summary": "从字节、腾讯、美团等大厂DS真实面试结构出发，拆解统计学基础（20%）、机器学习理论（30%）、Python/SQL编程（25%）、业务case分析（25%）四大考察方向。提供各方向AI辅助备考方式、面试当天实时辅助流程，适合4-6周针对性备战。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "2026大厂面试AI辅助完整攻略：字节、阿里、腾讯、百度、美团策略各不同",
+      "url": "https://www.mianlingai.com/blog/bigtech-interview-ai-comparison-2026",
+      "publish_date": "2026-05-28",
+      "summary": "横向对比五大厂技术面核心差异：字节算法题标配+快节奏、阿里场景化问题+STAR行为题、腾讯项目深挖+多轮追问、百度AI技术原理考察、美团AI初筛+严格管控。分析AI辅助工具在每家的适用场景与局限性，帮求职者制定针对性备考策略。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "当AI坐在面试桌两端：2026年下半年AI与数据科学岗位面试到底在考什么？",
+      "url": "https://www.dataapplab.com/when-ai-occupies-both-sides-of-the-interview-table/",
+      "publish_date": "2026-08",
+      "summary": "深度分析2026年AI面试四大趋势：技术面从take-home作业回归实时编码（考察推导思维而非答案）、AI使用规则成为最大灰色地带（74%求职者用AI但81%面试官怀疑作弊）、行为面STAR框架需扛住3-4层追问带真实数字、系统设计重点考AI相关权衡。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "应届生进AI大厂：校招流程全拆解，避开80%的人踩的坑",
+      "url": "https://blog.csdn.net/zydsp/article/details/159015305",
+      "publish_date": "2026-08-24",
+      "summary": "2026届AI校招全流程避坑指南。核心内容：三大岗位方向准备重点（算法岗/AI开发岗/AI产品岗）、简历'三选一'原则（保留3个高匹配项目）、投递顺序建议（提前批→秋招主力批→春招补录）、笔试通过率仅15%-25%的备考策略、面试'关键词+案例'自我介绍法。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "秋招笔面试记录：LeetCode + NowCoder刷题规划与面试经验",
+      "url": "https://m.nowcoder.com/feed/main/detail/24b1e1105be84c76a20d631d4b544d71",
+      "publish_date": "2026-08",
+      "summary": "系统化的秋招备考规划：刷题平台（LeetCode热题100+剑指Offer+代码随想录）、重点考察范围（数据结构/算法/数据库/OS/网络）、技术面试要点（手写代码先说思路、项目深挖准备1-2个、系统设计常考秒杀/短链接）、备考建议（提前3个月+每周20题+模拟面试）。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "2026春招后端面经：字节、阿里、腾讯20场面试真题汇总",
+      "url": "https://blog.csdn.net/qq_42055933/article/details/160449013",
+      "publish_date": "2026-04-23",
+      "summary": "涵盖字节（7场）、阿里（6场）、腾讯（7场）共20场面试的完整技术真题。字节侧重LRU Cache手撕+Redis持久化；阿里考Kafka高吞吐+分布式事务；腾讯考TCP三次握手+项目深挖。附高频考点总结和代码答案，适合后端/全栈方向备考。",
+      "category": "面经",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "华为面试手撕高频题与备考规划（基于6139篇面经统计）",
+      "url": "https://onefly.top/zero2Leetcode/05_interview/coding/huawei/",
+      "publish_date": "2026-08",
+      "summary": "基于小红书4867篇+牛客1272篇面经统计的华为面试手撕题Top38。AI算法岗70%为LeetCode Hot 100原题+30%ML手撕；软件开发岗80%为LC原题。最高频题：无重复字符最长子串（30次）、岛屿数量（29次）、有效括号（22次）。含面试流程、各岗位考察方向和备考规划。",
+      "category": "高价值资料",
+      "sources_count": 6139,
+      "credibility": "高"
+    },
+    {
+      "title": "后端+Agent双路线秋招速成方案（27届备战指南）",
+      "url": "https://adg.csdn.net/6a855ccf10ee7a33f29cc8f6.html",
+      "publish_date": "2026-08",
+      "summary": "针对纯CRUD后端岗缩招但AI+后端岗增长的趋势，提供双线并行秋招方案。前期七成后端+三成Agent，后端核心过完后偏移Agent方向。后端高频考点（HashMap/Redis/Spring）+Agent高频考点（ReAct/Function Calling/RAG/幻觉控制）全面覆盖。",
+      "category": "学习路径",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "不卷算法、不写论文：2026年AI应用开发正在疯狂招人（附50+真实JD分析）",
+      "url": "https://blog.csdn.net/2301_80630163/article/details/161491117",
+      "publish_date": "2026-08-23",
+      "summary": "基于牛客网/Boss直聘等平台50+真实岗位的AI应用开发方向调研报告。AI应用开发岗需求增速高于传统后端，核心技术栈：Python+LangChain+RAG+Agent+向量数据库。本科生有机会，重点考察工程落地能力而非论文。含完整学习路线和技能优先级。",
+      "category": "学习路径",
+      "sources_count": 50,
+      "credibility": "高"
+    },
+    {
+      "title": "从零入门Agent开发保姆级学习路线（双非本科靠它拿到AI岗offer）",
+      "url": "https://www.nowcoder.com/discuss/873496278204698624",
+      "publish_date": "2026-04-14",
+      "summary": "零基础入门Agent开发的4阶段学习路线：入门筑基期（Python+大模型API调用+第一个demo，1-2周）→核心进阶期（LangChain+五大模块专项突破，2-4周）→项目实战期→求职冲刺期。强调'先跑通闭环再深入原理，先做应用再挖底层'的高效路径。",
+      "category": "学习路径",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "2026企业招聘需求分析：AI Agent岗位JD拆解与能力模型",
+      "url": "https://github.com/bcefghj/ai-agent-interview-guide/blob/main/docs/02-%E4%BC%81%E4%B8%9A%E6%8B%9B%E8%81%98%E5%88%86%E6%9E%90/README.md",
+      "publish_date": "2026-08",
+      "summary": "GitHub开源项目，汇总2026年国内头部企业AI Agent岗位JD，分析招聘市场趋势（BOSS直聘AI岗位同比增长74.1%）、大厂岗位详细拆解（腾讯/小红书/字节/百度/创业公司）、共性技能需求矩阵（Python/Go+RAG+工具调用+记忆+评测）、薪资范围参考。",
+      "category": "高价值资料",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "数据分析面试题总结（vivo/小红书/美团/京东/哈啰面经）",
+      "url": "https://blog.csdn.net/cpc784221489/article/details/105360830",
+      "publish_date": "2026-07-20",
+      "summary": "系统汇总vivo、小红书、美团、京东、哈啰等公司数据分析面试题，涵盖业务逻辑问题（利润下降分析、点击量下降拆解）、统计学与算法（假设检验、ROC曲线）、SQL题（开窗函数、多表关联）、Python题（Pandas操作、可视化），是数分方向备考的实用题库。",
+      "category": "面试技巧",
+      "sources_count": 5,
+      "credibility": "高"
+    },
+    {
+      "title": "数据分析之机器学习Python高频面试题及答案（滴滴/京东/美团/字节）",
+      "url": "https://www.nowcoder.com/feed/main/detail/9d55665f8a894f058fc489ed3d2d6b24",
+      "publish_date": "2026-08",
+      "summary": "按公司分类整理Python面试题：滴滴问常用包用法、猿辅导考斐波那契数列、京东考去重方法、美团考JSON处理、字节考包使用经验。每题附参考答案和答案解析，覆盖numpy/pandas/matplotlib/sklearn等数据分析核心库的高频考察点。",
+      "category": "面试技巧",
+      "sources_count": 8,
+      "credibility": "高"
+    },
+    {
+      "title": "牛客网算法工程师精选面经合集（美团/Momenta等最新面经）",
+      "url": "https://www.nowcoder.com/experience/645",
+      "publish_date": "2026-08-25",
+      "summary": "牛客网算法工程师面经专区，持续更新中。最新面经包含：美团Agent开发一面（RAG选型追问、Agent项目深度拆解）、Momenta大模型算法一面（GRPO设计、LLM长尾样本对齐）、美团8.25笔试（AI Coding题型+ML题目）。含31篇面经和12+道真题解析。",
+      "category": "面经",
+      "sources_count": 31,
+      "credibility": "高"
+    },
+    {
+      "title": "校招面经汇总：字节/腾讯/百度/美团70+场面试经验",
+      "url": "https://m.nowcoder.com/discuss/353159089435910144",
+      "publish_date": "2026-08",
+      "summary": "CV方向硕士秋招70+场面试、20+个意向的完整面经汇总。覆盖腾讯（项目深挖+Transformer讨论）、阿里（场景化问题+系统设计）、百度（论文+手写NMS）、字节（BN参数量+交叉熵反向传播）、美团（推荐算法+Python多线程）等20+企业。附HR面常见问题清单。",
+      "category": "面经",
+      "sources_count": 20,
+      "credibility": "高"
+    },
+    {
+      "title": "数据分析简历项目经验怎么写更出彩（面试官视角）",
+      "url": "https://www.eshutong.com/archives/88148.html",
+      "publish_date": "2026-08-20",
+      "summary": "从筛选428份简历的面试官视角出发，讲解数据分析简历优化方法：项目经验本质是'决策证据链'而非工作流水账；选3个项目按岗位相关度排序；用STAR法则写'清洗/建模/验证/输出'动作词；量化结果用相对值（降低30%）；附正面/反面案例对比。",
+      "category": "高价值资料",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "数据科学简历优化指南：从ATS筛选到STAR法则量化项目经验",
+      "url": "https://wenku.csdn.net/column/our8pp07ks0",
+      "publish_date": "2026-06-02",
+      "summary": "系统性数据科学简历优化方法：从岗位描述反向工程简历关键词、黄金一页纸原则、技术技能部分按精通/熟悉/了解分层、工作/项目经验用STAR法则讲数据故事、ATS友好性格式选择。特别强调'没有万能简历'，每次投递都要针对JD定制。",
+      "category": "高价值资料",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "中国石油大学（华东）理学院8月专场空中双选会",
+      "url": "https://m.dazhonghr.com/jobfair/school/12017",
+      "publish_date": "2026-08-01",
+      "summary": "中国石油大学（华东）理学院2026年8月专场空中双选会，共106家企业、838个岗位。涵盖石油化工、新能源、信息技术等领域，其中世界500强和央企国企占比超40%。学生可通过大众人才网平台报名参与，建议理学院2024级学生提前关注并投递简历。",
+      "category": "高价值资料",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "中国石油大学（华东）材料科学与工程学院：简历制作与面试技巧专题讲座",
+      "url": "https://mse.upc.edu.cn/2026/0706/c17022a496643/page.htm",
+      "publish_date": "2026-07-06",
+      "summary": "石大材工学院2026年7月举办的求职指导讲座，从面试前的信息搜集与自我梳理、现场应答技巧、礼仪细节到心态调整，系统梳理自我介绍和专业问答等环节的应对策略。讲座内容适用于全校各学院学生参考借鉴。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "中国石油大学（华东）文法学院：求职竞争力提升专题讲座",
+      "url": "https://shl.upc.edu.cn/2026/0506/c1579a489510/page.htm",
+      "publish_date": "2026-05-06",
+      "summary": "石大文法学院2026年5月求职指导讲座，从面试前仪容仪表准备、个人经历复盘，到面试中自我介绍逻辑构建、常见问题应答思路，再到面试后复盘总结，全方位传授实用技巧。讲师结合在京东、58同城等企业的真实面试官经历进行分享。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "2026校招求职征文：打破信息差，'三桶油'通关实战指南（石大学生）",
+      "url": "https://m.sohu.com/a/1047500966_121106842/",
+      "publish_date": "2026-07-08",
+      "summary": "中国石油大学研究生秋招通关经验：把握秋招主战场（国企核心岗位集中在9-11月）、拓宽能源就业新边界（不仅限三桶油）、提前拿下四六级（硬性门槛一票否决）、统考笔试提前备战行测。最终签约中石化石油勘探开发研究院，对石大学生求职能源类企业极具参考价值。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "Interview Questions for Data Science Interviews（机器学习面试十项建议）",
+      "url": "https://blog.csdn.net/ninnyyan/article/details/141925324",
+      "publish_date": "2026-08-24",
+      "summary": "基于Expedia Group数据科学面试经验总结的十项备考建议：简历内容必须精通（不熟悉的不要写）、机器学习核心概念（SVM/随机森林/PCA等）、统计学基础、编程能力、系统设计（取决于职级）、沟通表达能力、行为问题准备。面试前要能手绘MLSD六块框架图。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "How to Prepare for a Data Scientist Interview in 2026: The Complete Guide",
+      "url": "https://www.aceround.app/blog/data-scientist-interview-ai/",
+      "publish_date": "2026-04-11",
+      "summary": "数据科学面试五轮类型全攻略：HR Screen（90秒版本自我介绍）、统计与实验（A/B测试设计+假设检验）、Python & SQL编程（窗口函数+Pandas+pipeline）、ML概念（bias-variance tradeoff+模型评估）、行为面试（STAR法则）。三种DS角色（ML/Research/Product/Full-Stack）的差异化备考策略。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "高"
+    },
+    {
+      "title": "掌握什么AI技能会为求职大大加分（秋招AI面经问题43道）",
+      "url": "https://www.nowcoder.com/creation/subject/13f73873e9f94fdea3445a55b6e8b807",
+      "publish_date": "2026-02-26",
+      "summary": "牛客网社区整理的43道秋招AI面试真题，涵盖：为什么做Agent项目、RAG系统流程、MCP和Function Calling区别、如何写好prompt、多轮对话实现方案、LLM幻觉原因及解决方案、MCP协议核心内容、RAG检索优化策略、A2A协议、企业知识库RAG动态更新方案等。",
+      "category": "面经",
+      "sources_count": 1,
+      "credibility": "中"
+    },
+    {
+      "title": "vivo秋招2026完整备战指南：从网申到Offer",
+      "url": "https://www.resumemakeroffer.com/blog/post/113056",
+      "publish_date": "2026-08",
+      "summary": "vivo秋招全流程攻略：简历优化（STAR结构+ATS关键词匹配+AI简历姬JD对齐诊断）、笔试备考（行测+技术笔试分开准备）、面试备战（AI模拟面试+三类问题准备+反问技巧）、Offer谈判（薪资结构/试用期/违约金等避坑清单）。适合应届生全面参考。",
+      "category": "面试技巧",
+      "sources_count": 1,
+      "credibility": "中"
+    }
+  ],
+  "search_queries": [
+    "2026秋招 面试技巧 数据科学 AI",
+    "2026 校招 面经 算法工程师 AI Agent",
+    "2028届 实习 面试经验 大数据 Python",
+    "秋招 技术面 笔试 LeetCode 2026",
+    "AI Agent工程师 面试准备 2026",
+    "牛客网 2026秋招 面经 数据科学",
+    "2026 字节跳动 腾讯 面试 算法岗",
+    "Python数据分析 面试高频题 2026",
+    "2026 秋招求职 学习路线 机器学习 AI Agent",
+    "校招 简历优化 数据科学 2026",
+    "site:upueup.com OR site:upc.edu.cn 面试 求职"
+  ],
+  "total_items_found": 28
+}

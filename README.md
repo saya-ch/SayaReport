@@ -45,6 +45,7 @@
 | ---- | ---- |
 | AGENT.md | Saya 的完整工作规范（核心文件） |
 | PROMPT.md | 精简引导提示词 |
+| CHECKLIST.md | 阶段工作清单（每次任务的执行进度跟踪） |
 | index.html | 最新求职信息报告页面 |
 | assets/ | 静态资源文件夹 |
 

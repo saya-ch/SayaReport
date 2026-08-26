@@ -52,9 +52,14 @@
 
 | 文件 | 说明 |
 | ---- | ---- |
-| AGENT.md | Saya 的完整工作规范（核心文件） |
+| AGENT.md | Saya 的工作总纲与阶段路由（核心文件，各阶段细节见 PHASE-1~5） |
 | PROMPT.md | 精简引导提示词（定时任务入口） |
 | CHECKLIST.md | 阶段工作清单（执行进度跟踪，仅本地） |
+| PHASE-1.md | 阶段一：初始化与阅读 |
+| PHASE-2.md | 阶段二：信息检索与验证（核心） |
+| PHASE-3.md | 阶段三：前端设计与报告页素材 |
+| PHASE-4.md | 阶段四：生成 HTML 报告 + 独立复审 |
+| PHASE-5.md | 阶段五：部署与收尾 |
 | index.html | 最新求职信息报告页面 |
 | assets/ | 静态资源文件夹（报告素材 + README 头图） |
 | LICENSE | MIT 开源许可 |

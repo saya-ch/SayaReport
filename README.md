@@ -62,6 +62,7 @@
 | PHASE-5.md | 阶段五：部署与收尾 |
 | index.html | 最新求职信息报告页面 |
 | assets/ | 静态资源文件夹（报告素材 + README 头图） |
+| skills/ | 内置技能库：ui-ux-pro-max（UI/UX 设计情报库）+ gsap-skills（GSAP 动画技能库），阶段三设计报告时使用 |
 | LICENSE | MIT 开源许可 |
 
 ## 许可

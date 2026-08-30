@@ -3,628 +3,748 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saya · 求职与竞赛信息周报</title>
+<title>Saya · 求职与竞赛信息周报 2026-08-31</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 :root {
-  --pink: #f8a4c8;
-  --pink-light: #fde4f0;
-  --blue: #7ec8e3;
-  --blue-light: #e0f4ff;
-  --purple: #b8a9e8;
-  --purple-light: #f0ebff;
-  --bg: #fdfbfe;
-  --card-bg: #ffffff;
-  --text: #2d2b3a;
-  --text-muted: #6b6880;
-  --border: #e8e4f0;
-  --accent: #ff6b9d;
-  --success: #4ecdc4;
-  --warning: #ffe66d;
-  --gradient: linear-gradient(135deg, #f8a4c8 0%, #7ec8e3 50%, #b8a9e8 100%);
+  --pink:#f8a4c8;--pink-light:#fde4f0;--blue:#7ec8e3;--blue-light:#e0f4ff;
+  --purple:#b8a9e8;--purple-light:#f0ebff;--bg:#fdfbfe;--card-bg:#fff;
+  --text:#2d2b3a;--text-muted:#6b6880;--border:#e8e4f0;--accent:#ff6b9d;
+  --success:#4ecdc4;--warning:#ffe66d;
+  --gradient:linear-gradient(135deg,#f8a4c8 0%,#7ec8e3 50%,#b8a9e8 100%);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-.hero {
-  position: relative;
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem 1.5rem;
-  background: linear-gradient(160deg, #1a1030 0%, #2d1b4e 30%, #1a2a4a 60%, #0d1f3c 100%);
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 20%, rgba(248,164,200,0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 80%, rgba(126,200,227,0.12) 0%, transparent 50%);
-}
-.particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(248,164,200,0.6);
-  border-radius: 50%;
-  animation: float 6s infinite ease-in-out;
-}
-.particle:nth-child(odd) { background: rgba(126,200,227,0.6); animation-duration: 8s; }
-.particle:nth-child(3n) { background: rgba(184,169,232,0.5); animation-duration: 7s; }
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-30px) scale(1.5); opacity: 0.8; }
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-.cat-ears {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  animation: ear-wiggle 3s infinite ease-in-out;
-}
-@keyframes ear-wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
-}
-.hero h1 {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 800;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-}
-.hero .subtitle {
-  color: rgba(255,255,255,0.7);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-.hero .tagline {
-  color: var(--pink);
-  font-size: 0.95rem;
-  font-style: italic;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-nav.toc {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem 2rem;
-  margin: -2rem auto 3rem;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-}
-nav.toc h2 {
-  font-size: 1.1rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-nav.toc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-nav.toc a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  transition: all 0.2s;
-  display: block;
-}
-nav.toc a:hover { background: var(--pink-light); color: var(--accent); }
-section {
-  margin-bottom: 3rem;
-}
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 3px solid var(--gradient);
-}
-.section-header .icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
-.section-header h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  border-radius: 4px 0 0 4px;
-}
-.card.pink::before { background: var(--pink); }
-.card.blue::before { background: var(--blue); }
-.card.purple::before { background: var(--purple); }
-.card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
-.card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.5rem;
-}
-.card h3 a {
-  color: var(--text);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.card h3 a:hover { color: var(--accent); }
-.card .meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.card .meta span { display: flex; align-items: center; gap: 0.25rem; }
-.card p { font-size: 0.92rem; color: var(--text-muted); }
-.card .source {
-  margin-top: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-.card .source a { color: var(--blue); text-decoration: none; }
-.card .source a:hover { text-decoration: underline; }
-.badge {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.badge.hot { background: #ffe0e6; color: #d6336c; }
-.badge.new { background: #d4edda; color: #155724; }
-.badge.deadline { background: #fff3cd; color: #856404; }
-.badge.urgent { background: #f8d7da; color: #721c24; }
-.empty-note {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-muted);
-  font-style: italic;
-}
-footer {
-  text-align: center;
-  padding: 3rem 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
-  margin-top: 3rem;
-}
-footer .cat-bye { font-size: 1.5rem; margin-bottom: 0.5rem; }
-footer a { color: var(--accent); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-@media (max-width: 640px) {
-  nav.toc ul { grid-template-columns: 1fr; }
-  .hero { min-height: 50vh; padding: 2rem 1rem; }
-  .card { padding: 1.2rem; }
-  .container { padding: 0 1rem; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;transition:color .2s;}
+a:hover{color:#e0527a;}
+.hero{position:relative;min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;background:linear-gradient(160deg,#1a1030 0%,#2d1b4e 30%,#1a2a4a 60%,#0d1f3c 100%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(248,164,200,.15) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(126,200,227,.12) 0%,transparent 50%);}
+.particles{position:absolute;inset:0;overflow:hidden;}
+.particle{position:absolute;width:4px;height:4px;background:rgba(248,164,200,.6);border-radius:50%;animation:float 6s infinite ease-in-out;}
+.particle:nth-child(odd){background:rgba(126,200,227,.6);animation-duration:8s;}
+.particle:nth-child(3n){background:rgba(184,169,232,.5);animation-duration:7s;}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:.3;}50%{transform:translateY(-30px) scale(1.5);opacity:.8;}}
+.hero-content{position:relative;z-index:2;}
+.cat-ears{font-size:3rem;margin-bottom:.5rem;animation:ear-wiggle 3s infinite ease-in-out;}
+@keyframes ear-wiggle{0%,100%{transform:rotate(0deg);}25%{transform:rotate(-5deg);}75%{transform:rotate(5deg);}}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;}
+.hero .subtitle{color:rgba(255,255,255,.7);font-size:1rem;margin-bottom:1rem;}
+.hero .mascot-line{color:rgba(255,255,255,.9);font-size:1.1rem;font-style:italic;margin-top:.5rem;}
+.hero .date-badge{display:inline-block;padding:.4rem 1.2rem;background:rgba(255,107,157,.25);border:1px solid rgba(255,107,157,.4);border-radius:2rem;color:#fff;font-size:.85rem;margin-top:1rem;backdrop-filter:blur(4px);}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(253,251,254,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.6rem 0;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;padding:0 1rem;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-pill{flex-shrink:0;padding:.45rem 1rem;border-radius:1.5rem;font-size:.82rem;font-weight:600;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);cursor:pointer;transition:all .25s;white-space:nowrap;}
+.nav-pill:hover,.nav-pill.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.container{max-width:1100px;margin:0 auto;padding:1.5rem 1rem 3rem;}
+.section{margin-bottom:3rem;opacity:0;transform:translateY(24px);}
+.section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--border);}
+.section-icon{font-size:1.8rem;}
+.section-title{font-size:1.4rem;font-weight:700;}
+.section-tag{font-size:.7rem;padding:.2rem .6rem;border-radius:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.tag-hot{background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;}
+.tag-new{background:linear-gradient(135deg,var(--blue),#45aaf2);color:#fff;}
+.tag-urgent{background:linear-gradient(135deg,#f9ca24,#f0932b);color:#fff;}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1rem;transition:all .3s;position:relative;overflow:hidden;}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(45,43,58,.08);border-color:var(--pink);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s;}
+.card:hover::before{opacity:1;}
+.card-title{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;line-height:1.5;}
+.card-title a{color:var(--text);}
+.card-title a:hover{color:var(--accent);}
+.card-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem;font-size:.78rem;color:var(--text-muted);}
+.meta-tag{padding:.15rem .5rem;border-radius:.5rem;background:var(--pink-light);color:var(--accent);font-weight:500;}
+.card-body{font-size:.92rem;line-height:1.8;color:#444;}
+.card-body ul{margin:.5rem 0;padding-left:1.2rem;}
+.card-body li{margin-bottom:.3rem;}
+.card-sources{margin-top:.75rem;padding-top:.5rem;border-top:1px dashed var(--border);font-size:.78rem;color:var(--text-muted);}
+.card-sources a{color:var(--blue);font-weight:500;}
+.highlight-box{background:linear-gradient(135deg,var(--pink-light),var(--blue-light));border:1px solid rgba(248,164,200,.3);border-radius:12px;padding:1.2rem;margin:1rem 0;font-size:.9rem;}
+.highlight-box strong{color:var(--accent);}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;}
+.stat-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;}
+.stat-card{flex:1;min-width:140px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
+.stat-num{font-size:1.8rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:.75rem;color:var(--text-muted);margin-top:.25rem;}
+.footer{background:linear-gradient(160deg,#1a1030,#2d1b4e,#1a2a4a);color:rgba(255,255,255,.7);padding:2rem 1.5rem;text-align:center;border-radius:24px 24px 0 0;margin-top:2rem;}
+.footer a{color:var(--pink);}
+.footer .cat-face{font-size:2rem;margin-bottom:.5rem;}
+.search-box{width:100%;max-width:500px;margin:0 auto 2rem;padding:.7rem 1.2rem;border:2px solid var(--border);border-radius:2rem;font-size:.9rem;background:var(--card-bg);outline:none;transition:border-color .2s;}
+.search-box:focus{border-color:var(--accent);}
+.search-box::placeholder{color:var(--text-muted);}
+.tag-evergreen{background:linear-gradient(135deg,#a8e6cf,#88d8a8);color:#1a5e3a;}
+.tag-archive{background:linear-gradient(135deg,#dfe6e9,#b2bec3);color:#2d3436;}
+@media(max-width:640px){
+  .hero{min-height:40vh;padding:2rem 1rem;}
+  .container{padding:1rem .75rem 2rem;}
+  .card{padding:1.2rem;}
+  .grid-2{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
-<header class="hero">
+<!-- Hero Section -->
+<section class="hero">
   <div class="particles" id="particles"></div>
   <div class="hero-content">
     <div class="cat-ears">🐱</div>
     <h1>Saya · 求职与竞赛信息周报</h1>
-    <p class="subtitle">中国石油大学（华东）理学院 · 数据科学与大数据技术 2024 级</p>
-    <p class="tagline">（竖耳朵）喵~ Saya 为你整理了本周最新的求职与竞赛资讯喵！摇尾巴~</p>
+    <p class="subtitle">中国石油大学（华东）理学院 · 数据科学与大数据技术专业 · 2024级</p>
+    <div class="mascot-line">（竖起耳朵）喵~ Saya 为小主人整理好本周的求职竞赛资讯啦～ 请查阅喵！</div>
+    <div class="date-badge">📅 2026年8月31日 · 周一</div>
   </div>
-</header>
+</section>
 
-<div class="container">
-
-<nav class="toc">
-  <h2>📋 本期目录</h2>
-  <ul>
-    <li><a href="#sec1">🎯 面试准备资讯</a></li>
-    <li><a href="#sec2">🏆 学术竞赛资讯</a></li>
-    <li><a href="#sec3">💼 企业赛事资讯</a></li>
-    <li><a href="#sec4">📌 实习招聘信息</a></li>
-    <li><a href="#sec5">📊 就业辅助资讯</a></li>
-  </ul>
+<!-- Navigation -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <span class="nav-pill active" onclick="scrollToSection('interview')">🎯 面试准备</span>
+    <span class="nav-pill" onclick="scrollToSection('academic')">🏆 学术竞赛</span>
+    <span class="nav-pill" onclick="scrollToSection('enterprise')">🏢 企业赛事</span>
+    <span class="nav-pill" onclick="scrollToSection('internship')">💼 实习招聘</span>
+    <span class="nav-pill" onclick="scrollToSection('career')">📊 就业辅助</span>
+  </div>
 </nav>
 
-<!-- ===== 板块一：面试准备资讯 ===== -->
-<section id="sec1">
-  <div class="section-header">
-    <div class="icon" style="background:var(--pink-light);">🎯</div>
-    <h2>面试准备资讯</h2>
-  </div>
+<!-- Search -->
+<div class="container">
+  <input type="text" class="search-box" placeholder="🔍 搜索关键词，如 AI Agent、数学建模、实习..." id="searchBox" oninput="filterCards()">
 
-  <div class="card pink">
-    <h3><a href="https://m.nowcoder.com/discuss/879367411529506816" target="_blank">如何成为 AI Agent 工程师？2026 版学习路线</a> <span class="badge hot">热门</span></h3>
-    <div class="meta">
-      <span>📅 2026 年 8 月</span>
-      <span>🔗 牛客网</span>
+  <!-- Overview Stats -->
+  <div class="stat-row" id="stats">
+    <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">信息板块</div></div>
+    <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">精选条目</div></div>
+    <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">权威来源</div></div>
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">检索轮次</div></div>
+  </div>
+  <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-bottom:1.5rem;">信息覆盖窗口：2026-08-24 ~ 2026-08-31 ｜ 标注 <span class="meta-tag tag-evergreen" style="font-size:.7rem;">长期有效</span> 的条目为持续参考价值内容</p>
+
+  <!-- ==================== 板块1: 面试准备资讯 ==================== -->
+  <div class="section" id="interview">
+    <div class="section-header">
+      <span class="section-icon">🎯</span>
+      <h2 class="section-title">面试准备资讯</h2>
+      <span class="section-tag tag-hot">重点板块</span>
     </div>
-    <p>系统梳理 2026 年 AI Agent 工程师学习路线：从底层机制（Prompt Caching、MCP 协议）到框架选型（LangGraph + 厂商 SDK），再到工程深度（Tool 设计、Memory 分层、可观测性），最后是项目实战。强调 2026 年面试必备三维度数据：精度/延迟/成本。特别提醒：不要早学 Multi-Agent，不要堆框架，Prompt Caching 是成本工程关键。</p>
-    <div class="source">信息来源：<a href="https://m.nowcoder.com/discuss/879367411529506816" target="_blank">牛客网 - AI Agent 学习路线</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://www.aceround.app/zh-cn/blog/data-scientist-interview-ai" target="_blank">2026 年数据科学家面试完全指南：五轮攻略</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 AceRound Blog</span>
+    <!-- 高频面试题 -->
+    <div class="card" data-keywords="AI Agent 面试题 大模型 RAG 高频题">
+      <div class="card-title"><a href="https://blog.csdn.net/weixin_44151034/article/details/161729146" target="_blank">2026大厂大模型/Agent面试题汇总</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">AI Agent</span><span class="meta-tag">大模型</span><span class="meta-tag">面经</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-06-24</span><span>👤 CSDN</span>
+      </div>
+      <div class="card-body">
+        <p>汇总了2026年字节跳动、腾讯、阿里、小米、快手、美团等大厂AI大模型/Agent开发岗位的真实面试题，涵盖五大核心模块：</p>
+        <ul>
+          <li><strong>RAG模块</strong>：embedding模型结构、向量维度、检索增强生成全流程</li>
+          <li><strong>Agent模块</strong>：Agent与LLM本质区别、ReAct框架细节、工具调用死循环处理</li>
+          <li><strong>Transformer</strong>：Self-Attention复杂度、LayerNorm归一化维度、KV Cache优化</li>
+          <li><strong>工程实践</strong>：RLHF三阶段训练、MCP/A2A多智能体协作、记忆系统设计</li>
+          <li><strong>面试策略</strong>：字节技术密度最高（深挖ReAct），腾讯偏生态协议（MCP/A2A），阿里最全面（路由架构）</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://blog.csdn.net/weixin_44151034/article/details/161729146" target="_blank">CSDN - 2026大厂大模型/Agent面试题</a> · 个人分享，仅供参考
+      </div>
     </div>
-    <p>详解数据科学家面试五大模块：SQL（窗口函数、CTE）、统计学（A/B 测试、假设检验）、产品感知、机器学习概念与行为面试。提供 4 周备战计划：第一周基础、第二周技术深化、第三周业务与产品层、第四周行为面试+模拟面试。核心观点：DS 面试考察宽度而非深度，展示思考过程比完美答案更重要。</p>
-    <div class="source">信息来源：<a href="https://www.aceround.app/zh-cn/blog/data-scientist-interview-ai" target="_blank">AceRound - 数据科学家面试指南</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://www.wondercv.com/blog/ryKOeNSA.html" target="_blank">AI 算法岗校招怎么准备？技能要求与面试重点</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 超级简历 WonderCV</span>
+    <div class="card" data-keywords="AI Agent 面试题 50道 八大技术方向">
+      <div class="card-title"><a href="https://juejin.cn/post/7662267147439210534" target="_blank">AI Agent 全套50道面试题（八大技术方向·含标准答案）</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">AI Agent</span><span class="meta-tag">系统化题库</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-07-14</span><span>👤 掘金·AI未来技术</span>
+      </div>
+      <div class="card-body">
+        <p>50道AI Agent核心面试题，覆盖八大技术方向，配套标准解析：</p>
+        <ul>
+          <li><strong>基础认知篇</strong>：AI Agent定义、核心特征、工作闭环、落地场景</li>
+          <li><strong>架构原理篇</strong>：五大核心模块、Memory分类、规划方式、ReAct架构、CoT思维链</li>
+          <li><strong>RAG检索增强篇</strong>：系统架构、文档切分策略、向量相似度度量、质量评估</li>
+          <li><strong>工具调用篇</strong>：Function Calling机制、安全鲁棒性、多后端权限设计</li>
+          <li><strong>多智能体篇</strong>：Single-Agent vs Multi-Agent选型、通信方式、路由策略</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://juejin.cn/post/7662267147439210534" target="_blank">掘金 - AI Agent全套50道面试题</a> · 已核验
+      </div>
     </div>
-    <p>算法岗面试全流程解析：基础问答（反向传播推导、SVM 核技巧）→ 代码手撕（在线编辑器）→ 项目深挖（重中之重）→ 开放性讨论。2026 届备考路线：筑基期（数学+编程+ML 课程）→ 实践期（1-2 个深度项目+竞赛）→ 冲刺期（简历微调+模拟面试+海投复盘）。核心建议：项目质量远大于数量，基础不牢地动山摇。</p>
-    <div class="source">信息来源：<a href="https://www.wondercv.com/blog/ryKOeNSA.html" target="_blank">超级简历 - AI 算法岗校招指南</a></div>
-  </div>
 
-  <div class="card pink">
-    <h3><a href="https://github.com/adongwanai/AgentGuide" target="_blank">AgentGuide — AI Agent 开发学习与面试指南</a> <span class="badge new">开源</span></h3>
-    <div class="meta">
-      <span>📅 持续更新</span>
-      <span>🔗 GitHub</span>
+    <div class="card" data-keywords="大模型面试题 Agent RAG 工具调用 LangChain">
+      <div class="card-title"><a href="https://xiaolinnote.com/ai/" target="_blank">小林面试笔记 · 大模型面试题专题</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">Agent</span><span class="meta-tag">RAG</span><span class="meta-tag">LLM工程</span>
+        <span>📅 持续更新</span><span>👤 小林面试笔记</span>
+      </div>
+      <div class="card-body">
+        <p>五大面试专题系统覆盖AI Agent开发全链路，每道题配有面试现场复盘与手绘配图：</p>
+        <ul>
+          <li><strong>Agent面试专题</strong>：概念架构、设计范式（ReAct/Plan-and-Execute/Reflection）、工程实践、多Agent协作</li>
+          <li><strong>RAG面试专题</strong>：检索增强生成全流程、chunking策略、向量检索优化</li>
+          <li><strong>LLM工具调用专题</strong>：Function Calling、MCP协议、Tool Use最佳实践</li>
+          <li><strong>大模型工程专题</strong>：预训练、SFT、RLHF、推理优化</li>
+          <li><strong>LangChain框架专题</strong>：Chain、Agent、Memory设计模式</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://xiaolinnote.com/ai/" target="_blank">小林面试笔记 - 大模型面试题</a> · 已核验
+      </div>
     </div>
-    <p>系统化求职导向的 AI Agent 学习指南，涵盖：2026 Agent 求职通关路线（8-10 周）、算法岗/开发岗专项题库各 45 题、16 个大厂真实面经（美团/字节/阿里等）、1000 篇小红书 AI 算法岗面经整合版、简历编写指南与项目讲述技巧。求职新范式：「做出什么 > 学过什么」。</p>
-    <div class="source">信息来源：<a href="https://github.com/adongwanai/AgentGuide" target="_blank">GitHub - AgentGuide</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://www.cnblogs.com/autodriver/p/19829365" target="_blank">2026 阿里校招全攻略：高频题 Top20 + 考点拆解</a></h3>
-    <div class="meta">
-      <span>📅 2026 年 3 月</span>
-      <span>🔗 博客园</span>
+    <!-- 面试技巧 -->
+    <div class="card" data-keywords="面试技巧 STAR法则 自我介绍 行为面试 答题框架">
+      <div class="card-title"><a href="https://juejin.cn/post/7627818680535793716" target="_blank">AI面试答题框架：从定义讲到工程落地</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">面试技巧</span><span class="meta-tag">答题框架</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-04-13</span><span>👤 掘金·刀笔法老猫</span>
+      </div>
+      <div class="card-body">
+        <p>AI岗位面试的关键不是记忆力，而是表达结构。优质回答应包含四层：</p>
+        <ul>
+          <li><strong>先给结论</strong>：直接回答问题核心</li>
+          <li><strong>再解释推导</strong>：阐述原理和机制</li>
+          <li><strong>再补工程影响</strong>：结合实际场景分析</li>
+          <li><strong>最后给优化路径</strong>：展示解决思路</li>
+        </ul>
+        <p><strong>金句</strong>：「面试里的好答案，不是"答对"，而是"答出层次"。」</p>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://juejin.cn/post/7627818680535793716" target="_blank">掘金 - AI面试答题框架</a> · 个人分享，仅供参考
+      </div>
     </div>
-    <p>阿里面试特点：从项目入手测系统思维，追问「流量增大 100 倍你怎么设计」。高频题包括反转链表(No.206)、编辑距离(No.72)等经典题的深度变形。算法岗要求：机器学习基础 + Python/SQL 熟练 + 业务理解。30 天备考计划含每日安排。面试轮次：一面算法+基础 → 二面系统设计+项目深挖 → 三面综合能力 → HR 面。</p>
-    <div class="source">信息来源：<a href="https://www.cnblogs.com/autodriver/p/19829365" target="_blank">博客园 - 2026 阿里校招攻略</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://github.com/WeThinkIn/AIGC-Interview-Book" target="_blank">AIGC-Interview-Book — 三年面试五年模拟</a></h3>
-    <div class="meta">
-      <span>📅 持续更新</span>
-      <span>🔗 GitHub</span>
+    <!-- 学习路径 -->
+    <div class="card" data-keywords="学习路线 Python 数据科学 机器学习 AI Agent 工程化">
+      <div class="card-title"><a href="https://liuxue.xdf.cn/blog/blog_7957012.shtml" target="_blank">数据科学专业就业全景分析与学习路线规划</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">学习路径</span><span class="meta-tag">职业规划</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-05-28</span><span>👤 新东方</span>
+      </div>
+      <div class="card-body">
+        <p>面向数据科学与大数据技术专业的系统化学习与职业规划建议：</p>
+        <ul>
+          <li><strong>底层基础</strong>：高等数学、线性代数、概率论与数理统计</li>
+          <li><strong>中层工具</strong>：Python/Java、数据结构与算法、数据库原理、分布式系统</li>
+          <li><strong>核心技能</strong>：Hadoop、Spark、Flink、数据仓库、机器学习、数据挖掘</li>
+          <li><strong>顶层应用</strong>：金融风控、医疗健康、智能制造、电商用户分析</li>
+          <li><strong>五大就业方向</strong>：数据分析师（8-12K起）、大数据开发（10-15K起）、数据科学家/算法工程师（15-20K起）、BI可视化（8-14K起）、数据产品经理（15K+起）</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://liuxue.xdf.cn/blog/blog_7957012.shtml" target="_blank">新东方 - 大数据专业解析与就业全景分析</a> · <a href="https://www.gxbxxpt.org.cn/news/detail?id=6760" target="_blank">人工智能工程师位居应届生需求增速榜首</a> · 已核验
+      </div>
     </div>
-    <p>AIGC/LLM/AI Agent 算法工程师面试资源平台，涵盖：AI Agent 岗面试 50 问、大模型面试最高频 100 问、多模态算法岗 30 天复习路线、60 天大模型算法岗系统路线、AI Agent 工程岗面试路线（MCP/Memory/AgentOps/系统设计）等。支持面经投稿与公司题库共建。</p>
-    <div class="source">信息来源：<a href="https://github.com/WeThinkIn/AIGC-Interview-Book" target="_blank">GitHub - AIGC-Interview-Book</a></div>
-  </div>
 
-  <div class="card pink">
-    <h3><a href="https://www.nowcoder.com/discuss/851107351640731648" target="_blank">2026 大厂校招笔试指南（附高频考点）</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 牛客网</span>
+    <!-- 认证证书 -->
+    <div class="card" data-keywords="CDA 数据分析师 证书 认证 职业资格 PMP">
+      <div class="card-title"><a href="https://m.bjnews.com.cn/detail/1780565573129644.html" target="_blank">2026年职场核心竞争力六大认证指南</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">证书认证</span><span class="meta-tag">职业发展</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-06-04</span><span>👤 新京报</span>
+      </div>
+      <div class="card-body">
+        <p>六大高含金量证书中与数据科学相关的重点推荐：</p>
+        <ul>
+          <li><strong>CDA数据分析师</strong>：与CPA/CFA齐名，中国联通/德勤/商业银行等在招聘时标注"CDA优先"。考试费用：LEVEL I 1,200元 / LEVEL II 1,700元 / LEVEL III 2,500元。全国30+省市/70+城市/250+考场</li>
+          <li><strong>PMP项目管理</strong>：不限专业，渗透至IT/制造/医疗/新能源等多行业</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://m.bjnews.com.cn/detail/1780565573129644.html" target="_blank">新京报 - 六大认证指南</a> · <a href="https://www.pearsonvue.com/cn/zh/cda.html" target="_blank">Pearson VUE - CDA认证考试</a> · 已核验
+      </div>
     </div>
-    <p>算法编程题知识点考察趋势详解：入门级（模拟/枚举/栈/队列）→ 简单（链表/前缀和/哈希表）→ 中等（DP/二分/图论/单调栈）→ 较难（概率 DP/状压 DP/Tarjan/线段树）→ 困难（博弈论/模拟退火/NP 问题）。覆盖数据结构与算法、计算机基础、编程语言、人工智能、大数据等全栈知识点。</p>
-    <div class="source">信息来源：<a href="https://www.nowcoder.com/discuss/851107351640731648" target="_blank">牛客网 - 2026 大厂笔试指南</a></div>
   </div>
 
-  <div class="card blue">
-    <h3><a href="https://www.wondercv.com/mianjing/data-2026-273" target="_blank">中国平安 2026 届数据分析师校招面试全流程拆解</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 超级简历</span>
+  <!-- ==================== 板块2: 学术竞赛资讯 ==================== -->
+  <div class="section" id="academic">
+    <div class="section-header">
+      <span class="section-icon">🏆</span>
+      <h2 class="section-title">学术竞赛资讯</h2>
+      <span class="section-tag tag-urgent">报名中</span>
     </div>
-    <p>完整面试流程：网申（通过率 25-35%）→ 在线笔试（行测+统计学+SQL+Python，120 分钟）→ 技术一面（SQL 现场编写+统计追问+ML 算法原理，通过率 40-50%）→ 业务二面（2 对 1，场景分析）→ HR 面。薪资参考：一线城市首年综合收入约 18-28 万元。新增 AI 大模型数据分析方向。</p>
-    <div class="source">信息来源：<a href="https://www.wondercv.com/mianjing/data-2026-273" target="_blank">超级简历 - 平安数据分析师面经</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://javaguide.cn/roadmap" target="_blank">JavaGuide 学习路线合集（2026 最新版）</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 JavaGuide</span>
+    <div class="card highlight-box" data-keywords="数学建模 全国大学生 CUMCM 报名 9月">
+      <div class="card-title"><a href="https://www.mcm.edu.cn/" target="_blank">🔥 2026年"高教社杯"全国大学生数学建模竞赛</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">数学建模</span><span class="meta-tag">国家级</span><span class="meta-tag">截止报名</span>
+        <span>📅 比赛：2026-09-10 ~ 09-13</span>
+      </div>
+      <div class="card-body">
+        <p><strong>⭐ 世界上规模最大的数学建模竞赛，2025年超1837所院校/68311队/20万人参赛</strong></p>
+        <ul>
+          <li><strong>报名时间</strong>：2026年5月26日 ~ 2026年9月1日（多数赛区截止8月31日！）</li>
+          <li><strong>比赛时间</strong>：2026年9月10日（周四）18:00 ~ 9月13日（周日）20:00</li>
+          <li><strong>参赛要求</strong>：每队1-3人，同校全日制本科生，可跨专业/跨年级组队，不限专业</li>
+          <li><strong>奖项设置</strong>：全国一等奖约0.5%，全国二等奖约2%-3%；赛区一/二/三等奖由各省自定</li>
+          <li><strong>报名费</strong>：300元/队（多数赛区统一收取）</li>
+          <li><strong>提交方式</strong>：通过中国知网参赛系统提交论文</li>
+        </ul>
+        <p><strong>⚠️ 重要提醒</strong>：2026年新增《人工智能工具使用规定（2025年试行）》，请务必阅读！</p>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.mcm.edu.cn/" target="_blank">全国大学生数学建模竞赛官网</a> · <a href="https://m.saikr.com/58394" target="_blank">赛氪竞赛平台</a> · 官方权威
+      </div>
     </div>
-    <p>覆盖四大方向学习路线：Java 后端（Java 基础→Spring→分布式→项目实践）、AI Agent（大模型基础→LLM API→Prompt→RAG→Agent→工程化→项目实战）、全栈（AI 编程工具+前端能力）、测开（测试理论→自动化→AI 测试）。适合后端开发者转型 AI Agent 方向的同学参考。</p>
-    <div class="source">信息来源：<a href="https://javaguide.cn/roadmap" target="_blank">JavaGuide - 学习路线合集</a></div>
-  </div>
-</section>
 
-<!-- ===== 板块二：学术竞赛资讯 ===== -->
-<section id="sec2">
-  <div class="section-header">
-    <div class="icon" style="background:var(--blue-light);">🏆</div>
-    <h2>学术竞赛资讯</h2>
-  </div>
-
-  <div class="card blue">
-    <h3><a href="https://www.mcm.edu.cn" target="_blank">2026 年全国大学生数学建模竞赛（CUMCM）</a> <span class="badge urgent">即将开赛</span></h3>
-    <div class="meta">
-      <span>📅 竞赛时间：2026 年 9 月 10 日 18:00 — 9 月 13 日 20:00</span>
-      <span>🔗 官方网站</span>
+    <div class="card" data-keywords="C4-AI 人工智能创意赛 鸿蒙 昇腾 2026">
+      <div class="card-title"><a href="https://developer.huawei.com/home/C4-AI" target="_blank">2026中国高校计算机大赛 · 人工智能创意赛</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">人工智能</span><span class="meta-tag">鸿蒙赛道</span><span class="meta-tag">昇腾赛道</span>
+        <span>📅 复赛进行中</span>
+      </div>
+      <div class="card-body">
+        <p>第九届（2026）"中国高校计算机大赛—人工智能创意赛"，设鸿蒙高校创新赛和昇腾AI创新大赛双赛道：</p>
+        <ul>
+          <li><strong>参赛对象</strong>：中国内地及港澳台地区高等学校在读学生（含专科、本科、硕博），不限专业</li>
+          <li><strong>组队要求</strong>：单人或自由组队，最多3人，允许跨学校、跨专业组队</li>
+          <li><strong>复赛入围名单已公示</strong>，进入冲刺阶段</li>
+          <li><strong>含金量</strong>：全国普通高校大学生竞赛排行榜认可赛事</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://developer.huawei.com/home/C4-AI" target="_blank">华为开发者大赛官网 - C4-AI</a> · 官方权威
+      </div>
     </div>
-    <p>中国工业与应用数学学会主办的 A 类学科竞赛，全球最大规模数学建模竞赛。2025 年有 1837 所院校、68311 队、20 多万人参赛。2026 年新增 AI 工具使用规定（试行）：参赛队可在竞赛期间使用 AI 工具，但须遵循公开透明原则，在论文中设置「AI 工具使用声明」。报名通过中国知网进行。</p>
-    <div class="source">信息来源：<a href="https://www.mcm.edu.cn" target="_blank">全国大学生数学建模竞赛官网</a> | <a href="https://www.mcm.edu.cn/html_cn/node/fef94648f2836ab6cc81586f4c38512b.html" target="_blank">AI 工具使用规定</a></div>
-  </div>
 
-  <div class="card pink">
-    <h3><a href="https://www.mojinghub.com/competitions/swbmcm/2026" target="_blank">2026 年第十二届数维杯全国大学生数学建模挑战赛（秋季赛）</a> <span class="badge new">报名中</span></h3>
-    <div class="meta">
-      <span>📅 报名截止：2026 年 11 月 20 日</span>
-      <span>📅 竞赛时间：2026 年 11 月 20 日</span>
-      <span>🔗 模竞平台</span>
+    <div class="card" data-keywords="大数据挑战赛 创新杯 2026">
+      <div class="card-title"><a href="https://www.mojinghub.com/competitions/data/2026" target="_blank">2026年第五届"创新杯"大学生大数据挑战赛</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">大数据</span><span class="meta-tag">挑战赛</span>
+        <span>📅 报名中</span>
+      </div>
+      <div class="card-body">
+        <p>面向全国大学生的大数据方向专项竞赛：</p>
+        <ul>
+          <li><strong>参赛方式</strong>：在线提交结果数据、论文和代码</li>
+          <li><strong>竞赛流程</strong>：初赛 → 复赛（初赛成绩不影响复赛）</li>
+          <li><strong>适合方向</strong>：数据科学、机器学习、大数据分析</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.mojinghub.com/competitions/data/2026" target="_blank">墨镜Hub - 创新杯大数据挑战赛</a> · 已核验
+      </div>
     </div>
-    <p>聚焦科学与工程技术、数据科学与人工智能、经济管理与社会科学、仿真技术等领域。可作为国赛前的全真模拟赛。本科生组和研究生组分别评奖，设一等奖（≤10%）、二等奖（≤20%）、三等奖（≤30%）及优秀奖。</p>
-    <div class="source">信息来源：<a href="https://www.mojinghub.com/competitions/swbmcm/2026" target="_blank">模竞 - 数维杯 2026 秋季赛</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://www.kaggle.com/competitions" target="_blank">Kaggle 国际数据科学竞赛平台</a></h3>
-    <div class="meta">
-      <span>📅 持续进行</span>
-      <span>🔗 Kaggle</span>
+    <div class="card" data-keywords="仿真建模 挑战赛 全国大学生 2026">
+      <div class="card-title"><a href="https://www.163.com/dy/article/L5B69E4C05530N05.html" target="_blank">全国大学生仿真建模应用挑战赛（2026年修订版）</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">仿真建模</span><span class="meta-tag">报名中</span>
+        <span>📅 截止：2026-10-16</span><span>📅 比赛：10-16 ~ 10-20</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>报名截止</strong>：2026年10月16日18:00</li>
+          <li><strong>比赛时间</strong>：2026年10月16日20:00 ~ 10月20日20:00</li>
+          <li><strong>公布成绩</strong>：2026年12月中旬</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.163.com/dy/article/L5B69E4C05530N05.html" target="_blank">网易 - 仿真建模挑战赛章程</a> · 已核验
+      </div>
     </div>
-    <p>当前热门赛事：ARC Prize 2026（ARC-AGI-3，奖金 $850,000，创建具备流体智能的 AI）、ARC Prize 2026 - ARC-AGI-2（奖金 $700,000）、The Pokémon Company PTCG AI Battle Challenge（奖金 $240,000）。Kaggle 等级体系：Novice → Contributor → Expert → Master → Grandmaster，是全球数据科学竞赛含金量最高的平台之一。</p>
-    <div class="source">信息来源：<a href="https://www.kaggle.com/competitions" target="_blank">Kaggle Competitions</a></div>
   </div>
 
-  <div class="card blue">
-    <h3><a href="https://tianchi.aliyun.com/competition" target="_blank">阿里云天池大数据竞赛</a></h3>
-    <div class="meta">
-      <span>📅 比赛时间：2026.07.17 ~ 2026.10.27</span>
-      <span>🔗 天池平台</span>
+  <!-- ==================== 板块3: 企业赛事资讯 ==================== -->
+  <div class="section" id="enterprise">
+    <div class="section-header">
+      <span class="section-icon">🏢</span>
+      <h2 class="section-title">企业赛事资讯</h2>
+      <span class="section-tag tag-new">高价值</span>
     </div>
-    <p>阿里巴巴集团主办的全球高端算法竞赛，当前有多场赛事开放报名，聚焦人工智能方向。天池平台提供丰富的赛题和数据集，是国内数据科学竞赛的顶级平台。建议关注平台最新赛题动态，选择与数据科学、AI 相关的赛事参加。</p>
-    <div class="source">信息来源：<a href="https://tianchi.aliyun.com/competition" target="_blank">阿里云天池竞赛</a></div>
-  </div>
 
-  <div class="card pink">
-    <h3><a href="https://www.msaikr.com/chinamcm26" target="_blank">2026 年第七届「华数杯」大学生数学建模竞赛</a></h3>
-    <div class="meta">
-      <span>📅 获奖名单已公示（2026-08-24）</span>
-      <span>🔗 赛氪平台</span>
+    <div class="card" data-keywords="腾讯算法大赛 KDD Cup 2026 广告 推荐">
+      <div class="card-title"><a href="https://algo.qq.com/" target="_blank">2026腾讯广告算法大赛 · KDD Cup 2026官方赛道</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">算法竞赛</span><span class="meta-tag">总奖池600万+</span><span class="meta-tag">已结束</span>
+        <span>📅 报名：2026.03.20 ~ 04.24</span>
+      </div>
+      <div class="card-body">
+        <p><strong>总奖池超600万元人民币（约88.5万美元）</strong>，联动国际顶会KDD：</p>
+        <ul>
+          <li><strong>学术赛道（学生专属）</strong>：冠军独享30万美元（约200万人民币）</li>
+          <li><strong>工业赛道</strong>：冠军15万美元（约100万人民币）</li>
+          <li><strong>专项创新奖</strong>：2项技术创新奖，共9万美元（约60万+），激励Scaling Law与统一架构原创突破</li>
+          <li><strong>赛题</strong>：推荐系统"统一建模"挑战，基于腾讯真实业务海量脱敏数据</li>
+          <li><strong>福利</strong>：优秀选手获腾讯入职/实习绿色通道或心动Offer</li>
+        </ul>
+        <p><em>注：本赛事已于2026年4月截止报名，但其赛题和解题思路对算法方向面试准备有极高参考价值。</em></p>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://algo.qq.com/" target="_blank">腾讯算法大赛官网</a> · <a href="https://cloud.tencent.com/developer/news/3700707" target="_blank">腾讯云开发者社区</a> · 官方权威
+      </div>
     </div>
-    <p>可作为国赛前的全真模拟赛。题目分为 A、B、C 三个题目，难度与国赛数模类似。组委会提供赛后论文评语和讲析，附带专家全程辅导（5 月 20 日至 9 月 1 日）。获奖比例：一等奖 ≤10%、二等奖 ≤20%、三等奖 ≤30%。报名费 200 元/队。</p>
-    <div class="source">信息来源：<a href="https://www.msaikr.com/chinamcm26" target="_blank">赛氪 - 华数杯 2026</a></div>
-  </div>
-</section>
 
-<!-- ===== 板块三：企业赛事资讯 ===== -->
-<section id="sec3">
-  <div class="section-header">
-    <div class="icon" style="background:var(--purple-light);">💼</div>
-    <h2>企业赛事资讯</h2>
-  </div>
-
-  <div class="card purple">
-    <h3><a href="https://github.com/datawhalechina/competition-baseline" target="_blank">2026 科大讯飞 AI 开发者大赛</a> <span class="badge hot">推荐</span></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 Datawhale / 科大讯飞</span>
+    <div class="card" data-keywords="华为 昇腾AI 算法挑战赛 开发者大赛">
+      <div class="card-title"><a href="https://developer.huaweicloud.com/competition/information/1300000124/introduction" target="_blank">华为昇腾AI算法挑战赛</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">AI算法</span><span class="meta-tag">昇腾平台</span><span class="meta-tag">已结束</span>
+        <span>📅 初赛+进阶赛周期：2024.06 ~ 2026.03</span>
+      </div>
+      <div class="card-body">
+        <p>华为面向全球AI开发者的经典赛事，开放昇腾AI计算平台全栈能力：</p>
+        <ul>
+          <li><strong>参赛对象</strong>：具备应用软件开发能力的组织、企业或个人、学生</li>
+          <li><strong>组队</strong>：单人或2-5人组队，每位参赛者只能加入一支队伍</li>
+          <li><strong>福利</strong>：优秀选手获得招聘绿色通道权益</li>
+          <li><strong>857支队伍/31156人报名</strong>，影响力广泛</li>
+        </ul>
+        <p><em>注：本赛事已结束，关注下一届赛事动态。</em></p>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://developer.huaweicloud.com/competition/information/1300000124/introduction" target="_blank">华为云开发者大赛官网</a> · 官方权威
+      </div>
     </div>
-    <p>本届大赛赛题全面升级，582+ 前沿 AI 赛题，加速 181000+ 开发者团队成长。新增 Skill 开发挑战赛。Datawhale 社区提供各赛事的 Baseline 和 Topline 方案分享，涵盖数据挖掘、计算机视觉、自然语言处理、推荐系统等方向，适合入门学习和竞赛实战。</p>
-    <div class="source">信息来源：<a href="https://github.com/datawhalechina/competition-baseline" target="_blank">GitHub - Datawhale 竞赛 Baseline</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://www.heywhale.com/home/competition" target="_blank">2026 MinerU 数据智能与前沿语料挑战赛</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 和鲸社区</span>
+    <div class="card" data-keywords="字节跳动 AI全栈挑战赛 工程训练营">
+      <div class="card-title"><a href="https://m.sohu.com/a/1021699020_121106822/" target="_blank">字节跳动AI全栈挑战赛与工程训练营</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">AI全栈</span><span class="meta-tag">字节跳动</span>
+        <span>📅 发布：2026-05-12</span>
+      </div>
+      <div class="card-body">
+        <p>字节跳动面向高校学生举办的AI全栈挑战赛与工程训练营，涵盖AI应用全栈开发能力考核：</p>
+        <ul>
+          <li>涵盖大模型应用、Agent开发、全栈工程等方向</li>
+          <li>优秀选手可获得字节跳动实习/校招绿色通道</li>
+          <li>建议持续关注字节跳动校招官网获取最新赛事信息</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://m.sohu.com/a/1021699020_121106822/" target="_blank">搜狐 - 字节跳动AI全栈挑战赛</a> · 已核验
+      </div>
     </div>
-    <p>总奖金 ￥1,000,000 现金 + ￥1,000,000 算力。同时开放「自主数据科学系统生态共建计划」，提供论文联合署名 + 清华大学深造机会 + 深度合作邀约 + 电子证书。聚焦数据智能与前沿语料处理方向，适合数据科学与 AI 方向的同学参加。</p>
-    <div class="source">信息来源：<a href="https://www.heywhale.com/home/competition" target="_blank">和鲸社区 - 竞赛</a></div>
-  </div>
-</section>
-
-<!-- ===== 板块四：实习招聘信息 ===== -->
-<section id="sec4">
-  <div class="section-header">
-    <div class="icon" style="background:#fff3cd;">📌</div>
-    <h2>实习招聘信息</h2>
   </div>
 
-  <div class="card pink">
-    <h3><a href="https://talent.baidu.com/jobs/list" target="_blank">百度 2027 届校招 — AI 岗位大规模扩招</a> <span class="badge hot">热门</span></h3>
-    <div class="meta">
-      <span>📅 2026 年 7 月启动</span>
-      <span>🔗 百度招聘</span>
-      <span>📍 北京</span>
+  <!-- ==================== 板块4: 实习招聘信息 ==================== -->
+  <div class="section" id="internship">
+    <div class="section-header">
+      <span class="section-icon">💼</span>
+      <h2 class="section-title">实习招聘信息</h2>
+      <span class="section-tag tag-hot">进行中</span>
     </div>
-    <p>校招提供超 4000 个职位（同比增长 35%），AI 相关职位占比超九成。重点岗位：智能体算法工程师（Agent 全链路设计与开发）、大模型算法工程师（LLM 预训练/后训练/RLHF）、多模态算法工程师（视觉-语言跨模态）、AI 测试开发工程师。面向全球 2027 届毕业生。</p>
-    <div class="source">信息来源：<a href="https://talent.baidu.com/jobs/list" target="_blank">百度校园招聘</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://t.cj.sina.com.cn/articles/view/2010666107/77d8547b02001inw0" target="_blank">2027 届秋招提前批密集启动 — 大厂 AI 人才争夺战</a></h3>
-    <div class="meta">
-      <span>📅 2026 年 7-8 月</span>
-      <span>🔗 新浪财经</span>
+    <div class="card highlight-box" data-keywords="字节跳动 ByteIntern 7000 offer 校招 实习">
+      <div class="card-title"><a href="https://www.jiemian.com/article/14078742.html" target="_blank">🔥 字节跳动2026校招 · 史上最大规模7000+ offer</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">字节跳动</span><span class="meta-tag">7000+ Offer</span><span class="meta-tag">转正率>50%</span>
+        <span>📅 启动：2026-03</span>
+      </div>
+      <div class="card-body">
+        <p><strong>ByteIntern计划</strong>：面向2026/2027届毕业生，史上最大规模招聘：</p>
+        <ul>
+          <li><strong>总规模</strong>：7000+ offer，研发类4800+个（创历史新高）</li>
+          <li><strong>转正率</strong>：超50%</li>
+          <li><strong>AI方向重点</strong>：AI工程、AI产品岗位需求旺盛</li>
+          <li><strong>算法岗薪资</strong>：白菜价约26-29k/月</li>
+          <li><strong>重点岗位</strong>：推荐算法、大模型算法、AI Agent开发、风控算法、数据科学</li>
+        </ul>
+        <p><strong>🔥 字节当前在招的算法/数据实习岗位（部分）：</strong></p>
+        <ul>
+          <li>算法实习生-抖音（推荐/内容/对话算法）</li>
+          <li>大模型算法实习生-小荷健康（Agent/RAG/Tool Use方向）</li>
+          <li>推荐大模型算法实习-国际电商（2027届，可转正）</li>
+          <li>AI算法实习生-风控（CV/NLP/多模态大模型）</li>
+          <li>大数据开发工程师-数据平台（20-40K·15薪）</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.jiemian.com/article/14078742.html" target="_blank">界面新闻 - 字节腾讯启动2026实习招聘</a> · <a href="https://jobs.bytedance.com/campus/" target="_blank">字节跳动校招官网</a> · 官方权威
+      </div>
     </div>
-    <p>各大厂 2027 届校招规模：阿里巴巴 7000+ offer（AI 岗位占比超 6 成，阿里云/钉钉占比 80%）、字节跳动中国区超 5000 人（研发类增长 23%）、腾讯超 1 万名在校生（技术类扩招 36%，AI 岗位大幅增量）、百度超 4000 个（AI 占比 90%）、美团补招 6000 人（新增 AI Agent 开发工程师）。字节实行全年滚动招聘，提供 4 次独立投递机会。</p>
-    <div class="source">信息来源：<a href="https://t.cj.sina.com.cn/articles/view/2010666107/77d8547b02001inw0" target="_blank">新浪财经 - 秋招提前批盘点</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://www.163.com/dy/article/L42E5HK205524XBF.html" target="_blank">2026 互联网大厂校招盘点：AI 岗位人才需求飙升</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 网易</span>
+    <div class="card" data-keywords="腾讯 2027校招 AI原生岗位 全球 10000">
+      <div class="card-title"><a href="https://cyberfocus.cc/hiring" target="_blank">腾讯2027校园招聘启动 · AI重塑岗位设置</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">腾讯</span><span class="meta-tag">10000+实习</span><span class="meta-tag">AI原生岗位</span>
+        <span>📅 启动：2026-08-11</span>
+      </div>
+      <div class="card-body">
+        <p>腾讯2027校招面向2026.1-2027.12毕业的大学生，全球招募超1万人：</p>
+        <ul>
+          <li><strong>核心变化</strong>：AI深度重塑岗位设置与人才标准</li>
+          <li><strong>新增AI原生岗位</strong>：AI全栈工程师、Agent开发工程师、AI产品经理、AIGC艺术创作</li>
+          <li><strong>技术类扩招36%，产品类扩招39%</strong></li>
+          <li><strong>AI相关岗位大幅增量</strong>，技术/产品/设计岗位边界趋于融合</li>
+          <li><strong>人才标准</strong>：认同AI方向、边做边学、能判断和验证AI输出</li>
+          <li><strong>覆盖城市</strong>：深圳、北京、上海、成都、广州、杭州、中国香港等</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://cyberfocus.cc/hiring" target="_blank">CyberFocus - 腾讯2027校招</a> · <a href="https://www.jiemian.com/article/14078742.html" target="_blank">界面新闻</a> · 已核验
+      </div>
     </div>
-    <p>核心趋势：① 从「学历崇拜」到「实战优先」，项目经验权重高于学历标签；② 从「单点技能」到「复合能力」，市场对「懂技术又懂业务」的跨界人才需求旺盛；③ 从「招人填坑」到「储备未来」，大厂为 2027 届毕业生卡位布局。AI 能力正从「加分项」变成「必选项」。顶尖人才专项计划：腾讯青云计划、阿里星计划、科大讯飞飞星计划、B 站 B-UP。</p>
-    <div class="source">信息来源：<a href="https://www.163.com/dy/article/L42E5HK205524XBF.html" target="_blank">网易 - 大厂校招盘点</a></div>
-  </div>
 
-  <div class="card pink">
-    <h3><a href="https://www.datayes.com/learningrecruitment.html" target="_blank">通联数据 2026 校园招聘</a></h3>
-    <div class="meta">
-      <span>📅 暑期实习进行中，9-11 月正式校招</span>
-      <span>🔗 通联数据</span>
-      <span>📍 上海/南京</span>
+    <div class="card" data-keywords="阿里巴巴 数据科学 实习 杭州 2027届">
+      <div class="card-title"><a href="https://mnowpick.nowcoder.com/m/detail/index?jobId=435641" target="_blank">阿里巴巴 · 2026暑期实习 · 数据科学岗</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">阿里巴巴</span><span class="meta-tag">数据科学</span><span class="meta-tag">杭州</span>
+        <span>📅 2027届</span><span>🎓 硕士及以上</span>
+      </div>
+      <div class="card-body">
+        <p>核心定位：数据驱动业务决策，AI赋能数据分析。需硕士及以上学历：</p>
+        <ul>
+          <li><strong>数据洞察</strong>：设计指标体系、A/B实验、异动归因</li>
+          <li><strong>业务深度</strong>：商家分层、用户增长、GMV波动分析、物流运筹优化</li>
+          <li><strong>AI/大模型</strong>：Text-to-SQL、RAG知识库、AI Agent/多Agent协作、LLM辅助实验</li>
+          <li><strong>要求</strong>：Python/R + SQL + 概率统计 + ML算法 + AI工具实践</li>
+          <li><strong>加分项</strong>：Fine-tuning、RLHF、RAG、AI Agent/Function Calling经验</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://mnowpick.nowcoder.com/m/detail/index?jobId=435641" target="_blank">牛客网 - 阿里巴巴数据科学实习</a> · 已核验
+      </div>
     </div>
-    <p>暑期实习专为 2026 届应届生准备，需完成至少 8 周全勤实习，通过答辩直接锁定全职 Offer。岗位：软件开发工程师（前端/Java/Python，上海）、测试工程师（上海）、数据分析师（南京）。简历投递邮箱：recruiting@datayes.com。</p>
-    <div class="source">信息来源：<a href="https://www.datayes.com/learningrecruitment.html" target="_blank">通联数据 - 2026 校园招聘</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://www.offerstar.cn/recruitment" target="_blank">2027 届秋招岗位汇总（实时更新）</a></h3>
-    <div class="meta">
-      <span>📅 每日更新</span>
-      <span>🔗 OfferStar</span>
+    <div class="card" data-keywords="滴滴 数据科学 实习 上海 240 300">
+      <div class="card-title"><a href="https://www.jrzp.com/job2583195270.shtml" target="_blank">滴滴出行 · 数据科学实习生（上海）</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">滴滴</span><span class="meta-tag">数据科学</span><span class="meta-tag">200-300元/天</span>
+        <span>📅 发布：2026-08-27</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>方向</strong>：国际化部门 · 数字营销方向</li>
+          <li><strong>工作内容</strong>：A/B实验设计、因果推断、数据分析</li>
+          <li><strong>要求</strong>：一周至少4天，连续6个月；统计学/计算机/数据相关专业优先</li>
+          <li><strong>薪资</strong>：本科240元/天、研究生300元/天</li>
+          <li><strong>福利</strong>：加班餐补打车报销，完善的实习生成长计划</li>
+          <li><strong>地点</strong>：上海-滴滴百川大厦 / 北京-滴滴天空之城</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.jrzp.com/job2583195270.shtml" target="_blank">今日招聘 - 滴滴数据科学实习</a> · 已核验
+      </div>
     </div>
-    <p>汇总 2027 届校招/春招/日常实习/暑期实习岗位信息，覆盖国防军工、科技、国企等多个行业。近期热门：汉得信息（数智化咨询顾问+Java+数据开发）、澳鹏数据（数据训练师）、云路股份（材料/电气）等。建议持续关注平台获取最新投递链接。</p>
-    <div class="source">信息来源：<a href="https://www.offerstar.cn/recruitment" target="_blank">OfferStar - 校招岗位汇总</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://www.liepin.com/zpshujufenxishishixi" target="_blank">猎聘 — 数据分析师实习岗位</a></h3>
-    <div class="meta">
-      <span>📅 持续更新</span>
-      <span>🔗 猎聘</span>
-      <span>📍 全国</span>
+    <div class="card" data-keywords="上海银行 暑期实习 2028届 金融科技 数据开发">
+      <div class="card-title"><a href="http://m.yinhangzhaopin.com/m/217980.htm" target="_blank">上海银行2026暑期实习生招聘 · 2027/2028届可投</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">金融</span><span class="meta-tag">2028届可投</span><span class="meta-tag">数据开发</span>
+        <span>📅 发布：2026-05-07</span>
+      </div>
+      <div class="card-body">
+        <p><strong>⭐ 2028届毕业生可投递的暑期实习岗位：</strong></p>
+        <ul>
+          <li><strong>金融科技岗-数据开发</strong>：参与大数据仓库建设、AI大模型平台建设、数据模型研发</li>
+          <li><strong>要求</strong>：理工类专业（计算机/AI/数学/统计等），有金融复合背景者优先</li>
+          <li><strong>地点</strong>：上海 / 江苏苏州</li>
+          <li>同时开放应用开发、运维开发等金融科技岗位</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="http://m.yinhangzhaopin.com/m/217980.htm" target="_blank">银行招聘网 - 上海银行暑期实习</a> · 已核验
+      </div>
     </div>
-    <p>当前在招数据分析实习岗位：快手数据分析实习生（北京五道口，6-8k）、美团配送侧数据分析实习生（北京望京，3-4k）、美团大数据 AI 项目实习生（北京望京，3-5k，硕士）、滴滴数据分析实习生（北京西北旺，4-5k）。建议优先投递大厂实习，积累项目经验。</p>
-    <div class="source">信息来源：<a href="https://www.liepin.com/zpshujufenxishishixi" target="_blank">猎聘 - 数据分析师实习</a></div>
-  </div>
-</section>
 
-<!-- ===== 板块五：就业辅助资讯 ===== -->
-<section id="sec5">
-  <div class="section-header">
-    <div class="icon" style="background:var(--purple-light);">📊</div>
-    <h2>就业辅助资讯</h2>
-  </div>
-
-  <div class="card purple">
-    <h3><a href="https://www.fxbaogao.com/detail/5482830" target="_blank">智联研究院：2026 年大学生就业前景研判</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 智联招聘</span>
+    <div class="card" data-keywords="校园招聘 石油大学 就业 就业网 东明石化">
+      <div class="card-title"><a href="https://career.upc.edu.cn" target="_blank">中国石油大学（华东）智慧就业网 · 近期校园招聘动态</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">校招</span><span class="meta-tag">本校专属</span>
+        <span>📅 持续更新</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>东明石化</strong>：暑期实习宣讲进行中</li>
+          <li><strong>"百校学子地方行"</strong>：德州站实践活动</li>
+          <li><strong>AIGC漫剧创作公益讲座</strong>：2026年7月举办</li>
+          <li><strong>"百日冲刺"行动</strong>：促进2026届毕业生就业</li>
+          <li>建议持续关注 <a href="https://career.upc.edu.cn" target="_blank">career.upc.edu.cn</a> 获取最新校园招聘信息</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://career.upc.edu.cn" target="_blank">中国石油大学（华东）智慧就业网</a> · 官方权威
+      </div>
     </div>
-    <p>核心发现：人工智能工程师以 31.1% 的职位数同比增速位居应届生需求增速榜首，数据工程师（28.3%）紧随其后。AI 工程师主要来自计算机、软件工程、人工智能、数据科学与大数据技术专业。数据科学与大数据技术专业毕业后 3 年平均月薪 7032 元，进入高薪专业榜单。高薪院校以「双一流」为主体。</p>
-    <div class="source">信息来源：<a href="https://www.fxbaogao.com/detail/5482830" target="_blank">智联研究院 - 就业前景研判</a></div>
   </div>
 
-  <div class="card pink">
-    <h3><a href="https://www.pwccn.com/zh/press-room/press-releases/pr-140726.html" target="_blank">普华永道：2026 年全球人工智能就业晴雨表 — 中国内地分析</a></h3>
-    <div class="meta">
-      <span>📅 2026 年 7 月 14 日</span>
-      <span>🔗 普华永道</span>
+  <!-- ==================== 板块5: 就业辅助资讯 ==================== -->
+  <div class="section" id="career">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">就业辅助资讯</h2>
+      <span class="section-tag tag-new">趋势</span>
     </div>
-    <p>中国内地 AI 岗位招聘回暖，AI 岗位占整体招聘比例实现 6.4% 增幅。TMT 行业 AI 岗位占比最高（10.7%），薪资溢价最高。受 AI 影响程度越高的职业，技能转型速度越快。应用类岗位在 2021 年与 2025 年两度阶段性反超开发类，表明 AI 进入加速应用与部署阶段。企业从「招聘 AI 人才」转向「提升全员 AI 能力」。</p>
-    <div class="source">信息来源：<a href="https://www.pwccn.com/zh/press-room/press-releases/pr-140726.html" target="_blank">普华永道 - AI 就业晴雨表</a></div>
-  </div>
 
-  <div class="card blue">
-    <h3><a href="https://thunderbit.com/zh-Hans/blog/ai-job-statistics-explained" target="_blank">AI 就业数据全解读：2026 年招聘趋势与未来展望</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 Thunderbit</span>
+    <div class="card highlight-box" data-keywords="AI人才缺口 500万 人工智能工程师 增速 数据工程师">
+      <div class="card-title"><a href="https://www.gxbxxpt.org.cn/news/detail?id=6760" target="_blank">🔥 2026年应届生就业趋势 · AI工程师需求增速榜首</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">行业趋势</span><span class="meta-tag">权威报告</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-06-23</span><span>👤 智联招聘</span>
+      </div>
+      <div class="card-body">
+        <p>智联招聘《2026年大学生就业前景研判》核心数据：</p>
+        <ul>
+          <li><strong>需求增速TOP职业</strong>：人工智能工程师31.1% > 数据工程师28.3% > 芯片工程师11.1% > 软件研发7.0%</li>
+          <li><strong>高增速行业</strong>：机器人+83.8%、新材料+60.1%、光电子+30.7%、AI+24.4%</li>
+          <li><strong>AI人才缺口</strong>：全国超500万，技术岗需供比3.5:1</li>
+          <li><strong>高薪专业TOP5</strong>：电子科学与技术(8064元)、智能科学与技术(7956元)、信息工程(7808元)</li>
+          <li><strong>对口专业</strong>：AI工程师→计算机/软件/AI/数据科学；数据工程师→计算机/大数据/统计/数学</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.gxbxxpt.org.cn/news/detail?id=6760" target="_blank">智联招聘 - 应届生需求增速榜首</a> · 官方权威
+      </div>
     </div>
-    <p>全球经济论坛数据：到 2030 年 AI 将创造 1.7 亿个新岗位，同时让 9200 万个岗位变得多余，净增 7800 万个岗位。到 2027 年近 25% 的岗位将发生重大变化。75% 的企业计划采用 AI 技术。AI 热门技能需求：批判性思维、分析思维、创意、韧性、灵活性等。85% 的企业将员工技能提升作为应对 AI 变革的优先事项。</p>
-    <div class="source">信息来源：<a href="https://thunderbit.com/zh-Hans/blog/ai-job-statistics-explained" target="_blank">Thunderbit - AI 就业数据解读</a></div>
-  </div>
 
-  <div class="card purple">
-    <h3><a href="https://www.persolkellycn.com/articles/2026-zhongguo-rencai-shichang-zhaopin-tongji" target="_blank">2026 年中国人才市场：招聘与统计数据</a></h3>
-    <div class="meta">
-      <span>📅 2026 年</span>
-      <span>🔗 PeopleSolutions</span>
+    <div class="card" data-keywords="AI职业趋势 薪资 普华永道 就业晴雨表">
+      <div class="card-title"><a href="https://www.pwccn.com/zh/press-room/press-releases/pr-140726.html" target="_blank">普华永道 · 2026年全球AI就业晴雨表</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">AI就业</span><span class="meta-tag">全球趋势</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-07-14</span><span>👤 普华永道</span>
+      </div>
+      <div class="card-body">
+        <p>普华永道权威报告核心发现：</p>
+        <ul>
+          <li><strong>中国AI岗位回暖</strong>：2025年招聘增幅6.4%，TMT行业AI岗位占比最高(10.7%)</li>
+          <li><strong>应用类岗位爆发</strong>：2025年增幅50.8%</li>
+          <li><strong>AI薪资溢价</strong>：TMT行业领跑，全行业AI渗透加速</li>
+          <li><strong>AI技能岗位月薪</strong>：比非AI岗位高出7,000-9,500元</li>
+          <li><strong>五大城市群AI技能需求</strong>：占全国90%</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://www.pwccn.com/zh/press-room/press-releases/pr-140726.html" target="_blank">普华永道 - 全球AI就业晴雨表</a> · 官方权威
+      </div>
     </div>
-    <p>人工智能产业规模从 2020 年的 2950 亿元增长到 2025 年预计 16710 亿元。企业对 AI 产品经理的需求激增，数据和算法岗位仍是核心优先事项。除技术能力外，雇主越来越看重数字战略、数据故事化以及跨职能执行能力。复合型人才（技术+业务）市场价值持续增长。</p>
-    <div class="source">信息来源：<a href="https://www.persolkellycn.com/articles/2026-zhongguo-rencai-shichang-zhaopin-tongji" target="_blank">PeopleSolutions - 中国人才市场统计</a></div>
-  </div>
-</section>
 
+    <div class="card" data-keywords="就业政策 人社部 高校毕业生 求职补贴 三支一扶">
+      <div class="card-title"><a href="http://114.255.111.180/xxgk2020/fdzdgknr/zcfg/gfxwj/jy/202603/t20260320_568804.html" target="_blank">人社部/财政部 · 2026年高校毕业生就业创业通知</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">国家政策</span><span class="meta-tag">就业扶持</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-02-13</span><span>👤 人社部/财政部</span>
+      </div>
+      <div class="card-body">
+        <p><strong>国家级政策文件</strong>，涵盖八大就业扶持措施：</p>
+        <ul>
+          <li>一次性求职补贴（低保/残疾/助学贷款毕业生）</li>
+          <li>职业培训补贴</li>
+          <li>支持城乡基层就业，启动第五轮"三支一扶"计划</li>
+          <li>鼓励灵活就业（数字经济/平台经济）</li>
+          <li>开展"就业第一课"进校园活动</li>
+          <li>离校未就业毕业生提供：1次政策宣介+1次职业指导+3次岗位推荐+1次培训/见习</li>
+          <li><strong>支持AI等新技术在求职招聘场景应用</strong></li>
+          <li>全年不间断"职引未来"系列招聘</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="http://114.255.111.180/xxgk2020/fdzdgknr/zcfg/gfxwj/jy/202603/t20260320_568804.html" target="_blank">人社部/财政部 - 高校毕业生就业通知</a> · 政府官方
+      </div>
+    </div>
+
+    <div class="card" data-keywords="大数据市场规模 2026 2.3万亿 230万缺口">
+      <div class="card-title"><a href="https://liuxue.xdf.cn/blog/blog_7957012.shtml" target="_blank">2026年大数据市场趋势与人才需求</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">市场趋势</span><span class="meta-tag">人才缺口</span><span class="meta-tag tag-evergreen">长期有效</span>
+        <span>📅 发布：2026-05-28</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>市场规模</strong>：2026年全球大数据市场预计突破2.3万亿元</li>
+          <li><strong>人才缺口</strong>：中国大数据核心岗位缺口230万+，合格从业者不到80万</li>
+          <li><strong>增长率</strong>：大数据相关岗位需求年均20%以上</li>
+          <li><strong>AI重塑行业</strong>：GPT类工具已能自动生成SQL代码、解读分析结果，会用AI工具的数据人将淘汰不会用的</li>
+          <li><strong>薪资参考</strong>：一线城市应届生13-25k/月，3-5年经验年薪30-50万</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://liuxue.xdf.cn/blog/blog_7957012.shtml" target="_blank">新东方 - 大数据专业解析</a> · <a href="https://www.businessresearchinsights.com/zh/market-reports/big-data-and-analytics-market-119012" target="_blank">Business Research Insights</a> · 已核验
+      </div>
+    </div>
+
+    <div class="card" data-keywords="简历优化 求职技巧 面试准备 就业指导">
+      <div class="card-title"><a href="https://xsb.szu.edu.cn/info/1010/1944.htm" target="_blank">深圳大学 · AI技术与就业指导融合培训</a></div>
+      <div class="card-meta">
+        <span class="meta-tag">求职技巧</span><span class="meta-tag">AI面试</span>
+        <span>📅 2026年</span>
+      </div>
+      <div class="card-body">
+        <p>深圳大学2026年就业辅导员培训亮点——AI技术与就业指导融合：</p>
+        <ul>
+          <li><strong>六大议题</strong>：职业定向、职业路径、职业准备、求职动力、简历优化、AI面试</li>
+          <li><strong>培训方式</strong>：理论+实操+情景演练</li>
+          <li><strong>趋势</strong>：AI正在改变面试方式，掌握AI面试技巧将成为必备能力</li>
+          <li><strong>简历核心</strong>：83%招聘JD要求"精通1-2种工具+业务理解"，企业要的是你做成了什么，不是你学过什么</li>
+        </ul>
+      </div>
+      <div class="card-sources">
+        信息来源：<a href="https://xsb.szu.edu.cn/info/1010/1944.htm" target="_blank">深圳大学 - 就业辅导员培训</a> · <a href="https://jnhrss.jinan.gov.cn/col/col18310/art/2026/art_2a5e9eee53cc4a28b02fc376a4d47bdb.html" target="_blank">济南人社局 - 求职能力实训营</a> · 已核验
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="cat-face">🐱</div>
+    <p style="font-size:1rem;margin-bottom:.5rem;">（蹭蹭）喵~ 报告到这里就结束啦，希望对小主人有帮助nya~</p>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1rem;">Saya · 中国石油大学（华东）理学院 · 2024级数据科学与大数据技术</p>
+    <p style="font-size:.8rem;">最后更新时间：2026-08-31 20:00</p>
+    <p style="font-size:.8rem;margin-top:.5rem;">
+      <a href="https://saya-ch.github.io/SayaReport/" target="_blank">GitHub Pages 访问</a> ·
+      <a href="https://github.com/saya-ch/SayaReport" target="_blank">GitHub 仓库</a>
+    </p>
+  </div>
 </div>
 
-<footer>
-  <div class="cat-bye">🐱</div>
-  <p>（蹭蹭）喵~ 以上就是本期 Saya 为你整理的所有资讯啦~ 希望对你有帮助喵！（摇尾巴）</p>
-  <p style="margin-top:0.75rem;">最后更新时间：2026-08-30 16:30</p>
-  <p style="margin-top:0.5rem;">
-    <a href="https://saya-ch.github.io/SayaReport/" target="_blank">GitHub Pages 访问</a> ·
-    <a href="https://github.com/saya-ch/SayaReport" target="_blank">仓库地址</a>
-  </p>
-  <p style="margin-top:1rem;font-size:0.8rem;color:#aaa;">Saya — 中国石油大学（华东）理学院 · 数据科学与大数据技术 2024 级求职信息助手</p>
-</footer>
-
 <script>
-// 粒子动画
+// Particles
 (function(){
-  var container = document.getElementById('particles');
-  for(var i = 0; i < 40; i++){
-    var p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random()*100+'%';
-    p.style.top = Math.random()*100+'%';
-    p.style.animationDelay = Math.random()*6+'s';
-    var size = (2+Math.random()*4)+'px';
-    p.style.width = size;
-    p.style.height = size;
-    container.appendChild(p);
+  const c=document.getElementById('particles');
+  for(let i=0;i<30;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.top=Math.random()*100+'%';
+    p.style.animationDelay=Math.random()*6+'s';
+    c.appendChild(p);
   }
 })();
 
-// GSAP 滚动动画（带降级）
-(function(){
-  if(typeof gsap !== 'undefined'){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.card').forEach(function(card, i){
-      gsap.from(card, {
-        scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
-        y: 30, opacity: 0, duration: 0.6, delay: (i % 4) * 0.1, ease: 'power2.out'
-      });
-    });
-    gsap.utils.toArray('.section-header').forEach(function(h){
-      gsap.from(h, {
-        scrollTrigger: { trigger: h, start: 'top 85%' },
-        x: -30, opacity: 0, duration: 0.5, ease: 'power2.out'
-      });
-    });
-  }
-})();
+// GSAP Scroll Animations
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.section').forEach(s=>{
+  gsap.to(s,{opacity:1,y:0,duration:.8,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 85%',toggleActions:'play none none none'}});
+});
+gsap.utils.toArray('.card').forEach((c,i)=>{
+  gsap.from(c,{opacity:0,y:30,duration:.6,delay:i%4*.1,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 90%',toggleActions:'play none none none'}});
+});
+
+// Navigation
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Search/Filter
+function filterCards(){
+  const q=document.getElementById('searchBox').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    const kw=(c.dataset.keywords||'').toLowerCase();
+    const txt=c.textContent.toLowerCase();
+    c.style.display=(q===''||kw.includes(q)||txt.includes(q))?'':'none';
+  });
+}
+
+// Add rel="noopener noreferrer" to all external links
+document.querySelectorAll('a[target="_blank"]').forEach(a=>{
+  if(!a.getAttribute('rel')) a.setAttribute('rel','noopener noreferrer');
+});
+
+// Active nav on scroll
+window.addEventListener('scroll',()=>{
+  const sections=['interview','academic','enterprise','internship','career'];
+  let current='interview';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&el.getBoundingClientRect().top<200) current=id;
+  });
+  document.querySelectorAll('.nav-pill').forEach((p,i)=>{
+    p.classList.toggle('active',sections[i]===current);
+  });
+});
 </script>
 </body>
 </html>

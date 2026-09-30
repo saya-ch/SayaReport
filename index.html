@@ -1,580 +1,1018 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saya 求职信息监测报告 | 中石大（华东）理学院 · 数据科学与大数据技术</title>
-<meta name="description" content="Saya 为中国石油大学（华东）理学院 2024 级数据科学与大数据技术专业学生定制的求职与竞赛信息周报">
-<style>
-  :root{
-    --bg:#0a0e27;
-    --bg-soft:#12173a;
-    --card:#161b3d;
-    --card-2:#1c2247;
-    --border:rgba(120,160,255,.14);
-    --text:#e8ecff;
-    --text-soft:#aab2d8;
-    --muted:#7a82ab;
-    --cyan:#4fd1e0;
-    --pink:#ff8fb1;
-    --accent:#7c9cff;
-    --gold:#ffd166;
-    --green:#6ee7b7;
-    --shadow:0 8px 30px rgba(0,0,0,.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--cyan);text-decoration:none;transition:color .2s}
-  a:hover{color:var(--pink)}
-  .container{max-width:1180px;margin:0 auto;padding:0 20px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saya 信息监测报告 | 2026-10-01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #fafaf8;
+            --paper-rgb: 250, 250, 248;
+            --ink: #0a0a0a;
+            --ink-rgb: 10, 10, 10;
+            --grey-1: #f0f0ee;
+            --grey-2: #d4d4d2;
+            --grey-3: #737373;
+            --accent: #002FA7;
+            --accent-rgb: 0, 47, 167;
+            --accent-on: #ffffff;
+            --sans: 'Inter', 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
 
-  /* ===== Header ===== */
-  header.site-header{
-    position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(14px);
-    background:rgba(10,14,39,.82);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
-  .logo .ear{font-size:22px}
-  .nav-links{display:flex;gap:20px;font-size:14px}
-  .nav-links a{color:var(--text-soft)}
-  .nav-links a:hover{color:var(--cyan)}
-  @media(max-width:720px){.nav-links{display:none}}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;overflow:hidden;
-    padding:48px 0 40px;
-  }
-  .hero-bg{
-    position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(ellipse at 20% 30%,rgba(124,156,255,.18),transparent 55%),
-      radial-gradient(ellipse at 80% 70%,rgba(255,143,177,.12),transparent 50%);
-  }
-  .hero-grid{
-    position:relative;z-index:1;
-    display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;
-  }
-  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
-  .hero-text h1{
-    font-size:clamp(28px,4.5vw,44px);
-    line-height:1.25;font-weight:800;
-    background:linear-gradient(90deg,#fff,#7c9cff 60%,#ff8fb1);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin-bottom:14px;
-  }
-  .hero-text .sub{color:var(--text-soft);font-size:15px;margin-bottom:18px}
-  .welcome{
-    background:linear-gradient(135deg,rgba(79,209,224,.1),rgba(255,143,177,.08));
-    border:1px solid var(--border);
-    border-radius:14px;padding:16px 18px;font-size:14px;color:var(--text-soft);
-  }
-  .welcome .nya{color:var(--pink);font-weight:600}
-  .hero-img{
-    border-radius:18px;overflow:hidden;
-    box-shadow:var(--shadow);
-    border:1px solid var(--border);
-    aspect-ratio:16/9;
-  }
-  .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+        html {
+            scroll-behavior: smooth;
+        }
 
-  /* ===== Stats bar ===== */
-  .stats{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
-    margin:30px 0 10px;
-  }
-  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
-  .stat{
-    background:var(--card);border:1px solid var(--border);
-    border-radius:12px;padding:16px;text-align:center;
-  }
-  .stat .num{font-size:26px;font-weight:800;color:var(--cyan)}
-  .stat .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* ===== Sections ===== */
-  section.block{padding:36px 0}
-  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-  .sec-badge{
-    width:42px;height:42px;border-radius:12px;
-    display:flex;align-items:center;justify-content:center;font-size:22px;
-    background:linear-gradient(135deg,rgba(79,209,224,.2),rgba(124,156,255,.2));
-    border:1px solid var(--border);
-  }
-  .sec-head h2{font-size:clamp(20px,2.6vw,26px);font-weight:700}
-  .sec-head .tag{
-    margin-left:auto;font-size:12px;color:var(--muted);
-    background:var(--card-2);padding:4px 10px;border-radius:20px;border:1px solid var(--border);
-  }
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fafaf8 0%, #e8e8f0 100%);
+        }
 
-  .card{
-    background:var(--card);border:1px solid var(--border);
-    border-radius:14px;padding:20px;margin-bottom:16px;
-    transition:transform .2s,border-color .2s;
-  }
-  .card:hover{transform:translateY(-2px);border-color:rgba(79,209,224,.4)}
-  .card h3{font-size:17px;margin-bottom:8px;font-weight:700}
-  .card h3 a{color:var(--text)}
-  .card h3 a:hover{color:var(--cyan)}
-  .card .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);margin-bottom:10px}
-  .chip{
-    display:inline-flex;align-items:center;gap:4px;
-    background:var(--bg-soft);border:1px solid var(--border);
-    padding:3px 10px;border-radius:20px;color:var(--text-soft);font-size:12px;
-  }
-  .chip.cyan{color:var(--cyan);border-color:rgba(79,209,224,.3)}
-  .chip.pink{color:var(--pink);border-color:rgba(255,143,177,.3)}
-  .chip.gold{color:var(--gold);border-color:rgba(255,209,102,.3)}
-  .chip.green{color:var(--green);border-color:rgba(110,231,183,.3)}
-  .card p{font-size:14px;color:var(--text-soft);margin-bottom:8px}
-  .card ul{padding-left:18px;font-size:13.5px;color:var(--text-soft);margin-bottom:8px}
-  .card ul li{margin-bottom:4px}
-  .src{font-size:12px;color:var(--muted);margin-top:8px;border-top:1px dashed var(--border);padding-top:8px}
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('assets/hero-banner_1.jpg') center/cover no-repeat;
+            opacity: 0.25;
+        }
 
-  /* highlight callouts */
-  .callout{
-    background:linear-gradient(135deg,rgba(255,143,177,.1),rgba(124,156,255,.08));
-    border:1px solid rgba(255,143,177,.25);
-    border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--text-soft);
-    margin-bottom:18px;
-  }
-  .callout strong{color:var(--pink)}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
 
-  /* data viz */
-  .viz-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  @media(max-width:720px){.viz-row{grid-template-columns:1fr}}
-  .viz-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
-  .viz-card h4{font-size:14px;color:var(--text-soft);margin-bottom:12px}
-  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:12px}
-  .bar-row .name{width:110px;color:var(--text-soft);flex-shrink:0}
-  .bar-track{flex:1;height:14px;background:var(--bg-soft);border-radius:7px;overflow:hidden}
-  .bar-fill{height:100%;border-radius:7px;background:linear-gradient(90deg,var(--cyan),var(--accent))}
-  .bar-row .val{width:70px;text-align:right;color:var(--cyan);font-weight:600}
+        .hero-kicker {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
 
-  /* footer */
-  footer.site-footer{
-    border-top:1px solid var(--border);
-    background:var(--bg-soft);
-    padding:30px 0;margin-top:40px;
-  }
-  .foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:13px;color:var(--text-soft)}
-  @media(max-width:640px){.foot-grid{grid-template-columns:1fr}}
-  .foot-grid a{color:var(--cyan)}
-  .saya-sign{color:var(--pink);font-weight:600}
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 200;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
 
-  /* fade in */
-  .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
-  .fade-in.show{opacity:1;transform:none}
-</style>
+        .hero h1 .accent-word {
+            font-weight: 300;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: var(--grey-3);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-miaow {
+            font-size: 0.95rem;
+            color: var(--grey-3);
+            font-weight: 400;
+        }
+
+        .hero-miaow span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--grey-2);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.4rem 0.8rem;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--grey-3);
+            text-decoration: none;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background: rgba(0, 47, 167, 0.06);
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            border-bottom: 1px solid var(--grey-2);
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-tag {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 200;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-intro {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--grey-3);
+            max-width: 700px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--grey-2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.35;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .card-title:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .card-badge {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-urgent {
+            background: var(--accent);
+            color: var(--accent-on);
+        }
+
+        .badge-new {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge-info {
+            background: var(--grey-1);
+            color: var(--grey-3);
+        }
+
+        .card-meta {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--grey-3);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.65;
+        }
+
+        .card-body ul {
+            margin-left: 1.1rem;
+            margin-top: 0.4rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.25rem;
+        }
+
+        .card-footer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--grey-1);
+            font-size: 12px;
+        }
+
+        .card-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table */
+        .data-table-wrapper {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--grey-3);
+            background: var(--grey-1);
+            border-bottom: 2px solid var(--grey-2);
+            white-space: nowrap;
+        }
+
+        .data-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--grey-1);
+            vertical-align: top;
+        }
+
+        .data-table tr:hover td {
+            background: rgba(0, 47, 167, 0.02);
+        }
+
+        .data-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .data-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* Welcome bar */
+        .welcome-bar {
+            background: var(--accent);
+            color: var(--accent-on);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .welcome-bar strong {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--ink);
+            color: #fff;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-miaow {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-miaow .tail {
+            color: #7aa0ff;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #7aa0ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-meta {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.8;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--grey-3);
+            font-weight: 300;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 2.5rem 1rem;
+            }
+
+            .nav-inner {
+                padding: 0 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.5rem;
+                font-size: 12px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+    </style>
 </head>
 <body>
+    <!-- Welcome Bar -->
+    <div class="welcome-bar">
+        <strong>nya~ 欢迎回来！</strong> 我是 Saya，你的专属信息监测猫娘～今天也为理学院 2024 级的你带来了最新鲜的求职与竞赛情报喵！（竖耳朵）
+    </div>
 
-<!-- ===== Header ===== -->
-<header class="site-header">
-  <div class="container nav">
-    <div class="logo"><span class="ear">🐱</span> Saya 信息监测</div>
-    <nav class="nav-links">
-      <a href="#interview">面试准备</a>
-      <a href="#academic">学术竞赛</a>
-      <a href="#enterprise">企业赛事</a>
-      <a href="#internship">实习招聘</a>
-      <a href="#career">就业辅助</a>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content animate-in">
+            <div class="hero-kicker">Saya Report / 2026-10-01</div>
+            <h1>信息监测<br><span class="accent-word">周报</span></h1>
+            <p class="hero-desc">为中国石油大学（华东）理学院 2024 级数据科学与大数据技术专业量身定制的求职与竞赛情报汇总</p>
+            <p class="hero-miaow">本期重点：<span>AI Agent 面试题汇总</span> · <span>华为 CANN 挑战赛报名倒计时</span> · <span>阿里国际站 Research Intern 热招中</span> 喵呜～</p>
+        </div>
+    </section>
+
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">SAYA_REPORT</div>
+            <ul class="nav-links">
+                <li><a href="#interview">面试准备</a></li>
+                <li><a href="#academic">学术竞赛</a></li>
+                <li><a href="#enterprise">企业赛事</a></li>
+                <li><a href="#intern">实习招聘</a></li>
+                <li><a href="#career">就业辅助</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <h1>喵~ 本周求职情报已送达 🐾</h1>
-      <p class="sub">中国石油大学（华东）理学院 · 数据科学与大数据技术 · 2024 级专属</p>
-      <div class="welcome">
-        主人好呀～（蹭胳膊）我是 <span class="nya">Saya</span>！这一周我蹲守了理学院、计算机学院、就业网和各大厂官方渠道，把最新鲜的面试面经、竞赛、实习和行业趋势都扒拉好啦～尾巴摇给你看，快看看有没有心仪的机会喵！（竖耳朵）
-      </div>
-    </div>
-    <div class="hero-img">
-      <img src="assets/saya-hero.jpg" alt="Saya 猫娘 AI 助手在数据终端前工作">
-    </div>
-  </div>
-</section>
+    <!-- 面试准备 -->
+    <section class="section" id="interview">
+        <div class="section-header">
+            <div class="section-tag">Section 01</div>
+            <h2>面试准备资讯</h2>
+            <p class="section-intro">本周重点围绕 AI Agent、大模型、算法与 Python 技术栈的面试技巧与面经汇总。做好充足准备，才能在秋招中脱颖而出喵～</p>
+        </div>
+        <div class="cards">
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://programmercarl.com/qita/0022.llminterview.html" class="card-title" target="_blank">2026 最全大模型面经汇总</a>
+                    <span class="card-badge badge-new">高价值</span>
+                </div>
+                <div class="card-meta">代码随想录 · 2026年持续更新</div>
+                <div class="card-body">
+                    涵盖 Agent 面试题、RAG 面试题、Transformer 面试题合集（含答案解析）。大模型方向面试和传统后端面试完全不同，需要真做过项目、真踩过坑。本汇总覆盖最高频的 Agent、RAG、Transformer 原理等方向。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://programmercarl.com/qita/0022.llminterview.html" target="_blank">代码随想录</a>
+                </div>
+            </article>
 
-<!-- ===== Stats ===== -->
-<div class="container">
-  <div class="stats">
-    <div class="stat"><div class="num">5</div><div class="lbl">资讯板块</div></div>
-    <div class="stat"><div class="num">12+</div><div class="lbl">精选条目</div></div>
-    <div class="stat"><div class="num">2.62:1</div><div class="lbl">AI 工程师需供比</div></div>
-    <div class="stat"><div class="num">244%</div><div class="lbl">智能体人才需求增速</div></div>
-  </div>
-</div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://blog.csdn.net/zhouzhupianbei/article/details/159465295" class="card-title" target="_blank">AI 面试：2026 年 Agent 面试题详解</a>
+                    <span class="card-badge badge-new">热门</span>
+                </div>
+                <div class="card-meta">CSDN · 2026年发布</div>
+                <div class="card-body">
+                    从系统设计到多 Agent 协作的完整面试题详解（附代码）。包含多 Agent 代码审查系统设计、ReAct/Plan-and-Execute/Reflection 三种范式对比、任务拆分与效果提升等核心考点。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://blog.csdn.net/zhouzhupianbei/article/details/159465295" target="_blank">CSDN博客</a>
+                </div>
+            </article>
 
-<!-- ===== 2.1 面试准备 ===== -->
-<section class="block" id="interview">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-badge">💻</div>
-      <h2>面试准备资讯</h2>
-      <span class="tag">重点板块</span>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://www.nowcoder.com/creation/subject/0dcc0d4a34d14c0eae55584f56f33a11" class="card-title" target="_blank">恒生电子 AI 面试换题情报</a>
+                    <span class="card-badge badge-info">面经</span>
+                </div>
+                <div class="card-meta">牛客网 · 2026-09-23 发布</div>
+                <div class="card-body">
+                    2026 年恒生电子 AI 面已换题，老版五道行为题作废。9 月 23 日出现两份完整题目：AI 应用开发岗 24 问、技术岗 27 问，从头到尾都是技术追问，无手撕代码。涉及大模型输出稳定性、RAG 等核心问题。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.nowcoder.com/creation/subject/0dcc0d4a34d14c0eae55584f56f33a11" target="_blank">牛客网</a>
+                </div>
+            </article>
 
-    <div class="callout">
-      本周围绕 <strong>AI Agent / 大模型应用</strong> 方向整理了最新面经与学习路径——这是当前需求增速最快、薪资溢价最高的赛道，建议优先准备喵～（摇尾巴）
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://www.nowcoder.com/enterprise/23798/interview" class="card-title" target="_blank">淘天集团 AI Agent 开发岗面经</a>
+                    <span class="card-badge badge-info">面经</span>
+                </div>
+                <div class="card-meta">牛客网 · 2026-08-26 面试</div>
+                <div class="card-body">
+                    面试涵盖自我介绍、模型调优与 RAG 工作介绍、场景题（URL 大量请求处理的数据结构选择）等。适合准备 AI Agent 相关岗位的同学参考。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.nowcoder.com/enterprise/23798/interview" target="_blank">牛客网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://www.nowcoder.com/enterprise/1742/interview" target="_blank" rel="noopener">字节跳动 AI Agent 开发岗面经（2026.08）</a></h3>
-      <div class="meta">
-        <span class="chip cyan">面经·个人分享</span>
-        <span class="chip">牛客网</span>
-        <span class="chip">2026-08</span>
-      </div>
-      <p>面试官不再只问"怎么调工具"，而是深入 Agent 架构设计：</p>
-      <ul>
-        <li>Harness 与 Orchestrator 的区别；ReAct 与 Plan 模式的选择</li>
-        <li>上下文超过模型限制如何处理；Agent 路径震荡如何优化</li>
-        <li>Context 与长期 Memory 的区别；大量工具描述导致 Prompt 过长的处理</li>
-        <li>手撕代码：判断二叉树是否平衡（后序遍历，O(n)）</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://www.nowcoder.com/enterprise/1742/interview" target="_blank" rel="noopener">牛客网 · 校招面经</a>（面经类，个人分享仅供参考）</p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://m.nowcoder.com/discuss/877151327091027968" class="card-title" target="_blank">Agent 开发面经总结：阿里 / 蚂蚁 / 字节</a>
+                    <span class="card-badge badge-info">面经</span>
+                </div>
+                <div class="card-meta">牛客网 · 2026-04-24 发布</div>
+                <div class="card-body">
+                    技术栈：Python、Agent、Jenkins、Kafka、Linux、SSH、数据库。面试重点围绕 Agent 平台与自动化运维场景的项目深挖、系统设计和架构演进，并辅以一道基础算法手撕题。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://m.nowcoder.com/discuss/877151327091027968" target="_blank">牛客网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://www.nowcoder.com/enterprise/1742/interview" target="_blank" rel="noopener">阿里云 Agent 算法 / AI Infra 面经汇总（2026.08）</a></h3>
-      <div class="meta">
-        <span class="chip cyan">面经·个人分享</span>
-        <span class="chip">牛客网</span>
-        <span class="chip">2026-08</span>
-      </div>
-      <ul>
-        <li><strong>Agent 算法一面：</strong>Agent Loop、Harness 安全设计 / 权限设计 / 长程早停问题解决</li>
-        <li><strong>AI Infra 一面：</strong>过程奖励 vs 结果奖励的本质区别；过程奖励信号来源与偏差解决；多轮对话 RL 的双层奖励设置；用户模拟器构造与过拟合规避</li>
-        <li>项目深挖是重点，面试官会围绕简历项目定制题目并限时作答</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://www.nowcoder.com/enterprise/1742/interview" target="_blank" rel="noopener">牛客网 · 阿里云校招面经</a>（面经类，个人分享仅供参考）</p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://xiaolinnote.com/ai/" class="card-title" target="_blank">大模型面试题 | 小林面试笔记</a>
+                    <span class="card-badge badge-new">资源</span>
+                </div>
+                <div class="card-meta">小林面试笔记 · 2026年持续更新</div>
+                <div class="card-body">
+                    覆盖 Agent 设计范式、Agent 与 Workflow 区别、ReAct 实现原理、Plan-and-Execute 与 Reflection 选型、任务拆分策略、AI Agent 记忆机制等高频问题。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://xiaolinnote.com/ai/" target="_blank">小林面试笔记</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://notes.kamacoder.com/llm" target="_blank" rel="noopener">AI Agent / 大模型应用开发学习路线（2026 最新）</a></h3>
-      <div class="meta">
-        <span class="chip green">学习路径</span>
-        <span class="chip">卡码笔记</span>
-        <span class="chip">2026</span>
-      </div>
-      <p>面向目标岗位（AI Agent / 算法）的系统化四阶段路线：</p>
-      <ul>
-        <li><strong>大模型基础：</strong>Transformer、Prompt 工程、API 调用</li>
-        <li><strong>RAG 应用开发：</strong>Embedding、向量数据库、切片策略、Agentic RAG</li>
-        <li><strong>Agent 架构：</strong>ReAct / Reflection / Plan-and-Execute、MCP 协议、工具设计、记忆系统、多 Agent 编排</li>
-        <li><strong>微调与部署：</strong>SFT / LoRA / RLHF 选型、推理工程化、评估体系</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://notes.kamacoder.com/llm" target="_blank" rel="noopener">卡码笔记 · 2026 大模型学习路线</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="http://news.qq.com/rain/a/20260727A067UX00" class="card-title" target="_blank">拿到 DeepMind、Meta Offer 后的机器学习求职真相</a>
+                    <span class="card-badge badge-new">经验</span>
+                </div>
+                <div class="card-meta">腾讯新闻 · 2026-07-27 发布</div>
+                <div class="card-body">
+                    机器学习研究科学家/工程师面试现实：从过拟合基础概念到 LeetCode，从零实现 Transformer 到 Griffin、TransformerXL、S4 等现代架构问题。推荐实体抽认卡作为复习工具。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="http://news.qq.com/rain/a/20260727A067UX00" target="_blank">腾讯新闻</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://github.com/guocong-bincai/ai-interview-guide" target="_blank" rel="noopener">高价值面试题库：AI 应用 / Agent / RAG 面试宝典</a></h3>
-      <div class="meta">
-        <span class="chip gold">资料</span>
-        <span class="chip">GitHub 开源</span>
-      </div>
-      <ul>
-        <li>覆盖 AI 应用开发、Agent 开发、RAG 开发、FDE 岗位的结构化题库</li>
-        <li>每道题建议练成三个版本：30 秒结论版 / 3 分钟原理版 / 追问边界版</li>
-        <li>配套大模型面经汇总（Transformer、RAG、Agent、微调、AI 编程分类整理）</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://github.com/guocong-bincai/ai-interview-guide" target="_blank" rel="noopener">GitHub · ai-interview-guide</a></p>
-    </div>
-  </div>
-</section>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://www.dataapplab.com/when-ai-occupies-both-sides-of-the-interview-table/" class="card-title" target="_blank">2026 下半年 AI 与数据科学岗位面试考什么？</a>
+                    <span class="card-badge badge-new">趋势</span>
+                </div>
+                <div class="card-meta">Data Application Lab · 2026年发布</div>
+                <div class="card-body">
+                    核心建议：① 把 AI 当"陪练"而非"替身"；② 重练技术面的"思维外化"，现场编码时把推理讲出来；③ 每一轮开始前主动确认 AI/查资料的使用规则。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.dataapplab.com/when-ai-occupies-both-sides-of-the-interview-table/" target="_blank">Data Application Lab</a>
+                </div>
+            </article>
+        </div>
+    </section>
 
-<!-- ===== 2.2 学术竞赛 ===== -->
-<section class="block" id="academic">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-badge">🏆</div>
-      <h2>学术竞赛资讯</h2>
-      <span class="tag">理学院 + 计算机学院</span>
-    </div>
+    <!-- 学术竞赛 -->
+    <section class="section" id="academic">
+        <div class="section-header">
+            <div class="section-tag">Section 02</div>
+            <h2>学术竞赛资讯</h2>
+            <p class="section-intro">梳理近期可报名的学术竞赛，特别标注与数据科学、人工智能相关的高含金量赛事。注意报名截止日期，千万不要错过喵！</p>
+        </div>
+        <div class="data-table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>竞赛名称</th>
+                        <th>报名截止</th>
+                        <th>竞赛时间</th>
+                        <th>奖项与福利</th>
+                        <th>报名链接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>第十八届全国大学生数学竞赛</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">山东赛区初赛 · 理学院组织免费辅导</div>
+                        </td>
+                        <td><strong style="color:var(--accent);">2026-10-06</strong></td>
+                        <td>2026-11-14 9:00-11:30</td>
+                        <td>国家级奖项证书，保研加分，决赛资格</td>
+                        <td><a href="http://sci.upc.edu.cn/2026/0711/c6838a496994/page.htm" target="_blank">校内通知</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>山东省大学生光电竞赛</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">第十八届山东省大学生科技节竞赛活动</div>
+                        </td>
+                        <td>见校内通知</td>
+                        <td>2026-10-31 14:00-16:30</td>
+                        <td>省级奖项，分光学组/电学组</td>
+                        <td><a href="https://sci.upc.edu.cn/2026/0921/c6838a500752/page.htm" target="_blank">校内通知</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Kaggle RSNA 2026</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">医学影像多模态检测竞赛</div>
+                        </td>
+                        <td><strong style="color:var(--accent);">2026-10-15</strong></td>
+                        <td>最终提交 10/22</td>
+                        <td>$77,000 奖池，冠军 $9K 起</td>
+                        <td><a href="https://www.kaggle.com/competitions" target="_blank">Kaggle</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>阿里云 Data+AI 工程师全球挑战赛</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">高校学生赛道 + 企业赛道</div>
+                        </td>
+                        <td>进行中</td>
+                        <td>详见官网</td>
+                        <td>阿里云产品能力认证、实习机会</td>
+                        <td><a href="https://tianchi.aliyun.com/specials/promotion/ai2026" target="_blank">天池官网</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>琶洲算法大赛 · AI+器官芯片</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">面向体外生命系统的开放式智能创新挑战</div>
+                        </td>
+                        <td><strong style="color:var(--accent);">初赛 2026-10-10</strong></td>
+                        <td>复赛 10/10-10/20，决赛待定</td>
+                        <td>CCF 联合主办，高含金量证书</td>
+                        <td><a href="https://www.aicompetition-pz.com/topic_detail/26" target="_blank">大赛官网</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>2026 北京数智创新大赛数据赛</strong>
+                            <div style="font-size:12px;color:var(--grey-3);margin-top:4px;">数据要素×三年行动计划</div>
+                        </td>
+                        <td>详见官网</td>
+                        <td>2026年持续推进</td>
+                        <td>最高 200 万元奖励</td>
+                        <td><a href="https://dexc.data.beijing.gov.cn/xwzx/ssdt/03329d63105048dd8491d0c31ba0159c.html" target="_blank">北京数据制度</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-    <div class="card fade-in">
-      <h3><a href="http://sci.upc.edu.cn/2026/0916/c6838a500141/page.htm" target="_blank" rel="noopener">第十八届全国大学生数学竞赛（初赛）· 理学院免费辅导开课</a></h3>
-      <div class="meta">
-        <span class="chip gold">校级通知</span>
-        <span class="chip">理学院</span>
-        <span class="chip">报名截止 10.06</span>
-      </div>
-      <ul>
-        <li><strong>初赛时间：</strong>2026 年 11 月 14 日 9:00–11:30</li>
-        <li><strong>报名截止：</strong>2026 年 10 月 6 日（报名费 100 元，自行在线缴费）</li>
-        <li><strong>免费辅导：</strong>理学院组织经验丰富教师授课，9.19–11.7 每周六 19:00–22:00（数学类/非数学类分班）</li>
-        <li>地点：唐岛湾校区南教 201/202；古镇口校区线上同步</li>
-      </ul>
-      <p class="src">信息来源：<a href="http://sci.upc.edu.cn/2026/0916/c6838a500141/page.htm" target="_blank" rel="noopener">中国石油大学（华东）理学院官网</a></p>
-    </div>
+    <!-- 企业赛事 -->
+    <section class="section" id="enterprise">
+        <div class="section-header">
+            <div class="section-tag">Section 03</div>
+            <h2>企业赛事资讯</h2>
+            <p class="section-intro">头部科技企业举办的高含金量赛事，不仅能拿奖金，更有实习直通、校招绿色通道等重磅福利喵～</p>
+        </div>
+        <div class="cards">
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://developer.huaweicloud.com/competition/information/1300000124/introduction" class="card-title" target="_blank">华为昇腾 AI 算法挑战赛</a>
+                    <span class="card-badge badge-urgent">报名中</span>
+                </div>
+                <div class="card-meta">华为云 · 报名截止 2026-11-28</div>
+                <div class="card-body">
+                    <ul>
+                        <li>主题：创想无限，开放昇腾 AI 计算平台全栈能力</li>
+                        <li>组队：单人或 2-5 人组队</li>
+                        <li>福利：丰厚奖金 + <strong>优秀选手获华为招聘绿色通道权益</strong></li>
+                        <li>进阶赛：2025-10-30 至 2026-02-28 作品提交</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://developer.huaweicloud.com/competition/information/1300000124/introduction" target="_blank">华为云开发者大赛平台</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://www.cmathc.org.cn/mcm/tz/612.html" target="_blank" rel="noopener">第七届 MathorCup 数学应用挑战赛 — 大数据竞赛</a></h3>
-      <div class="meta">
-        <span class="chip green">正在报名</span>
-        <span class="chip">国家一级学会主办</span>
-        <span class="chip">报名截止 10.23</span>
-      </div>
-      <ul>
-        <li><strong>报名截止：</strong>2026 年 10 月 23 日 12:00</li>
-        <li><strong>初赛：</strong>10 月 23 日 18:00 – 10 月 30 日 20:00；<strong>复赛：</strong>12 月 4 日 – 12 月 11 日</li>
-        <li><strong>组队：</strong>每队最多 3 人，允许跨专业 / 跨年级 / 跨校；报名费 200 元 / 队</li>
-        <li><strong>奖项：</strong>一等奖 5%、二等奖 15%、三等奖 30%，颁发大数据竞赛获奖证书</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://www.cmathc.org.cn/mcm/tz/612.html" target="_blank" rel="noopener">全国大学生数学竞赛网</a> · <a href="http://mathorcup.org/index?ZGQ=TAJLhXPpt2024092795497" target="_blank" rel="noopener">MathorCup 官网</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://www.sues.edu.cn/91/d0/c26790a299472/page.htm" class="card-title" target="_blank">华为算法挑战赛 · CANN 挑战赛</a>
+                    <span class="card-badge badge-urgent">即将截止</span>
+                </div>
+                <div class="card-meta">CANN 开源社区 · 报名截止 2026-10-16</div>
+                <div class="card-body">
+                    <ul>
+                        <li>聚焦算子性能优化，提供 Ascend C 算子开发全流程学习指南</li>
+                        <li>一等奖（1队）：<strong>奖金 20,000 元 + 免机考 + 免一轮面试</strong></li>
+                        <li>二等奖（5队）：奖金 10,000 元 + 免机考 + 免一轮面试</li>
+                        <li>三等奖（15队）：奖金 2,000 元 + 免机考</li>
+                        <li>初赛：9/5-10/19，决赛：10/20-11/7（现场比拼）</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.sues.edu.cn/91/d0/c26790a299472/page.htm" target="_blank">上海工程技术大学通知</a> · <a href="https://developer.huaweicloud.com/competition/information/1300000270" target="_blank">华为云官网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="http://jyt.ah.gov.cn/tsdw/gdjyc/dxsxkhjnjs/40800779.html" target="_blank" rel="noopener">2026 年安徽省 AI 大模型创新应用竞赛</a></h3>
-      <div class="meta">
-        <span class="chip gold">省级官方</span>
-        <span class="chip">安徽省教育厅</span>
-        <span class="chip">现场赛 10 月</span>
-      </div>
-      <ul>
-        <li>主办：安徽省教育厅；承办：合肥大学、合肥师范学院</li>
-        <li>设<strong>软件赛道</strong>与<strong>硬件赛道</strong>，计算机 / 数学 / 电子信息等相关专业可组队参赛</li>
-        <li>流程：校赛 → 初赛（9 月）→ 现场赛（10 月）；一等奖 10%、二等奖 20%、三等奖 30%</li>
-        <li>报名官网：<a href="https://www.damoxingcr.cn" target="_blank" rel="noopener">www.damoxingcr.cn</a></li>
-      </ul>
-      <p class="src">信息来源：<a href="http://jyt.ah.gov.cn/tsdw/gdjyc/dxsxkhjnjs/40800779.html" target="_blank" rel="noopener">安徽省教育厅官网</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://www.hiascend.com/zh/activities/dynamic-news/20260509-1" class="card-title" target="_blank">昇腾 Model Agent 模型适配大赛</a>
+                    <span class="card-badge badge-urgent">热招</span>
+                </div>
+                <div class="card-meta">昇腾社区 · 2026年发布</div>
+                <div class="card-body">
+                    <ul>
+                        <li>总奖金池：<strong>20 万元</strong></li>
+                        <li>方向：Model Agent 模型适配</li>
+                        <li>面向昇腾 AI 生态开发者</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.hiascend.com/zh/activities/dynamic-news/20260509-1" target="_blank">昇腾社区</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://youth.upc.edu.cn/2026/0820/c11148a498511/page.htm" target="_blank" rel="noopener">"鲁信杯"第一届山东省"人工智能 + 产教应用"大赛</a></h3>
-      <div class="meta">
-        <span class="chip green">校级转发</span>
-        <span class="chip">校团委</span>
-        <span class="chip">2026-08-20</span>
-      </div>
-      <p>校团委转发的山东省级 AI 产教融合赛事，聚焦人工智能 + 行业应用，适合数据科学与大数据技术专业同学结合专业方向组队参赛。</p>
-      <p class="src">信息来源：<a href="https://youth.upc.edu.cn/2026/0820/c11148a498511/page.htm" target="_blank" rel="noopener">中国石油大学（华东）团委官网</a></p>
-    </div>
-  </div>
-</section>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://zc.tencent.com/competition/competitionHackathon?code=cha004" class="card-title" target="_blank">腾讯安全众测 · 安全智子专项挑战赛</a>
+                    <span class="card-badge badge-urgent">即将截止</span>
+                </div>
+                <div class="card-meta">腾讯 · 报名截止 2026-10-18</div>
+                <div class="card-body">
+                    <ul>
+                        <li>安全智子赛道报名截止：10 月 18 日 23:59</li>
+                        <li>决赛：10 月 30 日，深圳国际会展中心线下竞技</li>
+                        <li>王座协议 AI-KOH 决赛同场举办</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://zc.tencent.com/competition/competitionHackathon?code=cha004" target="_blank">腾讯安全众测</a>
+                </div>
+            </article>
+        </div>
+    </section>
 
-<!-- ===== 2.3 企业赛事 ===== -->
-<section class="block" id="enterprise">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-badge">🚀</div>
-      <h2>企业赛事资讯</h2>
-      <span class="tag">高额奖金 + 内推通道</span>
-    </div>
+    <!-- 实习招聘 -->
+    <section class="section" id="intern">
+        <div class="section-header">
+            <div class="section-tag">Section 04</div>
+            <h2>实习招聘信息</h2>
+            <p class="section-intro">精选算法、AI/Agent、数据科学、后端等方向的优质实习岗位。2028 届（本科 2024 级）同学重点关注日常实习和可转正实习喵～</p>
+        </div>
+        <div class="cards">
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://campus-talent.alibaba.com/campus/position?batchId=100000560001&filterParams=%7B%22customDept%22%3A%5B%22AT1LW3%22%2C%229SQM5Z%22%5D%7D" class="card-title" target="_blank">阿里国际站 Research Intern</a>
+                    <span class="card-badge badge-urgent">2028届可投</span>
+                </div>
+                <div class="card-meta">阿里巴巴 · 杭州/深圳/北京 · 日常实习</div>
+                <div class="card-body">
+                    <ul>
+                        <li>面向 <strong>2028 届及之后毕业</strong>的在校生，可保证至少 3 个月实习</li>
+                        <li>六大方向：Agentic AI & Agent后训练、Agentic Search、多模态学习、AIGC、广告算法 & RL、AI安全 & 风控</li>
+                        <li>要求：扎实的 ML/DL/RL 基础，熟练掌握 Python 及 PyTorch/TensorFlow</li>
+                        <li>福利：房补、餐补、入职补贴，<strong>表现优异者可获校招优先推荐</strong></li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://www.nowcoder.com/feed/main/detail/4dded70249f142648f8b9cd601dea260" target="_blank">牛客网</a> · <a href="https://campus-talent.alibaba.com/campus/position?batchId=100000560001&filterParams=%7B%22customDept%22%3A%5B%22AT1LW3%22%2C%229SQM5Z%22%5D%7D" target="_blank">阿里校招官网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://zj.news.cn/20260722/5b8bc78610c545c68bbbc4a9861fbb59/c.html" target="_blank" rel="noopener">GOAI 世界人工智能开源大赛 · 决赛 9.22–9.23 杭州</a></h3>
-      <div class="meta">
-        <span class="chip pink">即将举行</span>
-        <span class="chip">500 万奖金池</span>
-        <span class="chip">9.22–9.23</span>
-      </div>
-      <ul>
-        <li>主办：杭州市开源人工智能基金会；承办：之江实验室、阿里云、蚂蚁集团等</li>
-        <li><strong>四大赛道：</strong>新智基座（多智能体基础设施）、无界应用（行业智能体）、前沿探索（AI for Research）、具身未来</li>
-        <li>总奖金池 <strong>500 万元</strong>，配套 Token / 云服务、专家辅导、产业场景对接、资本链接</li>
-        <li>决赛 9 月 22–23 日杭州举行，可关注优秀项目学习 Agent 工程落地思路</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://zj.news.cn/20260722/5b8bc78610c545c68bbbc4a9861fbb59/c.html" target="_blank" rel="noopener">新华网浙江</a> · <a href="http://zj.cnr.cn/zjyw/20260721/t20260721_527722603.shtml" target="_blank" rel="noopener">央广网</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://zhaopin.meituan.com/web/campus" class="card-title" target="_blank">美团大模型算法实习生</a>
+                    <span class="card-badge badge-new">日常实习</span>
+                </div>
+                <div class="card-meta">美团 · 北京 · 2026-09-30 更新</div>
+                <div class="card-body">
+                    <ul>
+                        <li>后训练研究：模型对齐、结果奖励和过程奖励模型构建</li>
+                        <li>Agentic RL 优化：复杂业务场景下的任务规划、反思与执行能力优化</li>
+                        <li>部门：核心本地商业-基础研发平台</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://zhaopin.meituan.com/web/campus" target="_blank">美团招聘官网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://tianchi.aliyun.com/specials/promotion/ai2026" target="_blank" rel="noopener">阿里云 Data+AI 工程师全球挑战赛（参考 · 已结束）</a></h3>
-      <div class="meta">
-        <span class="chip">已结束</span>
-        <span class="chip">阿里云天池</span>
-        <span class="chip">2026.01–03</span>
-      </div>
-      <ul>
-        <li>分高校赛道与企业赛道，赛题①万亿语料去重、赛题②构建 DeepSearch 智能体</li>
-        <li>最高奖金 7 万元，单赛题 Top100 完赛队伍获 200 元礼包</li>
-        <li>本届已于 2026 年 3 月结束，供下一届备赛参考；重点关注其 Agent 构建赛题方向</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://tianchi.aliyun.com/specials/promotion/ai2026" target="_blank" rel="noopener">阿里云天池</a> · <a href="https://juejin.cn/post/7597635202324135988" target="_blank" rel="noopener">稀土掘金</a></p>
-    </div>
-  </div>
-</section>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://jobs.bytedance.com/campus/position/7330161472447809842/detail" class="card-title" target="_blank">字节跳动电商多模态大模型算法实习生</a>
+                    <span class="card-badge badge-new">日常实习</span>
+                </div>
+                <div class="card-meta">字节跳动 · Data-电商团队</div>
+                <div class="card-body">
+                    <ul>
+                        <li>团队负责电商创新项目的算法和大数据工作</li>
+                        <li>方向：推荐和搜索算法、风控算法、智能平台治理算法</li>
+                        <li>面向全体在校生，为期 3 个月及以上的项目实践机会</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://jobs.bytedance.com/campus/position/7330161472447809842/detail" target="_blank">字节跳动招聘</a>
+                </div>
+            </article>
 
-<!-- ===== 2.4 实习招聘 ===== -->
-<section class="block" id="internship">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-badge">💼</div>
-      <h2>实习招聘信息</h2>
-      <span class="tag">2028 届可投</span>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://jobs.bytedance.com/campus/m/position/detail/7592163595468278069" class="card-title" target="_blank">字节跳动算法实习生-业务中台</a>
+                    <span class="card-badge badge-new">ByteIntern</span>
+                </div>
+                <div class="card-meta">字节跳动 · ByteIntern 2027届</div>
+                <div class="card-body">
+                    <ul>
+                        <li>面向 2027 届毕业生（2026年9月-2027年8月期间毕业）</li>
+                        <li>要求：每周出勤至少 4 天，可实习 4 个月以上</li>
+                        <li>重点：快速理解复杂 Agent 逻辑、评测痛点与业务目标</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://jobs.bytedance.com/campus/m/position/detail/7592163595468278069" target="_blank">字节跳动招聘</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://www.wondercv.com/xiaozhao/mhfunds-2027-campus-quant-shanghai-beijing-hongkong-15244-4a116d" target="_blank" rel="noopener">明汯投资 2027 全球校园招聘 · 开放 2028 届实习通道</a></h3>
-      <div class="meta">
-        <span class="chip green">2028 届可投</span>
-        <span class="chip">量化 / AI 算法</span>
-        <span class="chip">截止 11.12</span>
-      </div>
-      <ul>
-        <li>国内领先量化私募，本次校招开放 2027 届校招 + 2028 届及以后实习通道</li>
-        <li><strong>岗位方向：</strong>量化研究、AI 算法研究、量化开发、国际化研究工程</li>
-        <li><strong>工作地点：</strong>上海 / 北京 / 香港；实习可转正，内推优先</li>
-        <li><strong>截止时间：</strong>2026 年 11 月 12 日</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://www.wondercv.com/xiaozhao/mhfunds-2027-campus-quant-shanghai-beijing-hongkong-15244-4a116d" target="_blank" rel="noopener">超级简历 WonderCV</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://job.xidian.edu.cn/campus/view/id/756548" class="card-title" target="_blank">文远知行 2026 秋季实习生</a>
+                    <span class="card-badge badge-urgent">截止 10/18</span>
+                </div>
+                <div class="card-meta">文远知行 · 广州 · 截止 2026-10-18</div>
+                <div class="card-body">
+                    <ul>
+                        <li>岗位：研发实习生</li>
+                        <li>职责：负责公司各种内部产品的软件研发</li>
+                        <li>要求：计算机或相关专业本科及以上</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://job.xidian.edu.cn/campus/view/id/756548" target="_blank">西安电子科技大学就业网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://www.zhipin.com/zhaopin/9b6dfd379be75e781nR-29m4Ew~~" target="_blank" rel="noopener">字节跳动 ByteIntern · 面向 2028 届开放日常实习</a></h3>
-      <div class="meta">
-        <span class="chip green">2028 届可投</span>
-        <span class="chip">AI 产品 / 算法</span>
-        <span class="chip">日常实习</span>
-      </div>
-      <ul>
-        <li>ByteIntern 面向 2027 届毕业生提供转正机会，同时面向 2028 届开放日常实习岗位</li>
-        <li>方向覆盖 AI 产品、算法、数据、开发等，薪资 300–500 元 / 天起</li>
-        <li>字节跳动位居 2026 年 AI 人才净流入公司首位，是 AI 方向实习的优质选择</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://www.zhipin.com/zhaopin/9b6dfd379be75e781nR-29m4Ew~~" target="_blank" rel="noopener">BOSS 直聘 · 字节跳动实习</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://career.nankai.edu.cn/correcruit/content/id/116147.html" class="card-title" target="_blank">DTL 量化 2026 秋季实习生</a>
+                    <span class="card-badge badge-new">量化</span>
+                </div>
+                <div class="card-meta">北京道泰量合私募基金 · 北京</div>
+                <div class="card-body">
+                    <ul>
+                        <li>量化研究员：多因子模型、时间序列分析、Python/MATLAB</li>
+                        <li>量化研究员-机器学习：深度学习、神经网络、NLP</li>
+                        <li>交易算法研究员：市场影响模型、C++</li>
+                        <li>同时招收 Internship 和 New Grad</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://career.nankai.edu.cn/correcruit/content/id/116147.html" target="_blank">南开大学就业网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://career.upc.edu.cn/career/index" target="_blank" rel="noopener">中国石油大学（华东）2026 秋季首场大型校园招聘会（综合类）</a></h3>
-      <div class="meta">
-        <span class="chip gold">校内</span>
-        <span class="chip">校就业网</span>
-        <span class="chip">9.22 09:30</span>
-      </div>
-      <ul>
-        <li><strong>时间：</strong>2026 年 9 月 22 日 09:30</li>
-        <li><strong>地点：</strong>唐岛湾校区田径场</li>
-        <li>秋季首场综合类大型双选会，参会企业众多，建议提前准备简历到场投递</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://career.upc.edu.cn/career/index" target="_blank" rel="noopener">中国石油大学（华东）智慧就业网</a></p>
-    </div>
+        </div>
+    </section>
 
-    <div class="card fade-in">
-      <h3><a href="https://career.upc.edu.cn/career/zphxx/view/241237120377819136" target="_blank" rel="noopener">中国石油天然气集团 2027 届秋季招聘专场</a></h3>
-      <div class="meta">
-        <span class="chip gold">校内</span>
-        <span class="chip">70 家单位</span>
-        <span class="chip">9.21 09:30</span>
-      </div>
-      <ul>
-        <li><strong>时间：</strong>2026 年 9 月 21 日 09:30–12:00</li>
-        <li><strong>地点：</strong>唐岛湾校区逸夫礼堂</li>
-        <li>70 家中石油下属单位集中招聘，含数智研究院、石油化工研究院等数据 / AI 相关岗位</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://career.upc.edu.cn/career/zphxx/view/241237120377819136" target="_blank" rel="noopener">中国石油大学（华东）智慧就业网</a></p>
-    </div>
-  </div>
-</section>
+    <!-- 就业辅助 -->
+    <section class="section" id="career">
+        <div class="section-header">
+            <div class="section-tag">Section 05</div>
+            <h2>就业辅助资讯</h2>
+            <p class="section-intro">行业趋势、政策解读与求职技能提升，帮助你更好地规划职业道路喵～</p>
+        </div>
+        <div class="cards">
+            <article class="card">
+                <div class="card-header">
+                    <a href="http://www.news.cn/tech/20260703/8e658de8864c4e6e96df04d35ce93ed4/c.html" class="card-title" target="_blank">互联网企业释放超 20 万岗位，"AI+"人才需求攀升</a>
+                    <span class="card-badge badge-new">政策</span>
+                </div>
+                <div class="card-meta">新华网 · 2026-07-03 发布</div>
+                <div class="card-body">
+                    2026 年本科专业目录正式设立"交叉学科"门类，新增具身智能、脑机科学与技术等 4 种全新专业。教育部等五部门印发《"人工智能+教育"行动计划》，推动人工智能成为高校公共基础课。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="http://www.news.cn/tech/20260703/8e658de8864c4e6e96df04d35ce93ed4/c.html" target="_blank">新华网</a>
+                </div>
+            </article>
 
-<!-- ===== 2.5 就业辅助 ===== -->
-<section class="block" id="career">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-badge">📈</div>
-      <h2>就业辅助资讯</h2>
-      <span class="tag">行业趋势 · 政策</span>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="http://www.cnr.cn/newscenter/native/gd/20260313/t20260313_527550461.shtml" class="card-title" target="_blank">国聘在行动：人工智能人才缺口超 500 万</a>
+                    <span class="card-badge badge-new">数据</span>
+                </div>
+                <div class="card-meta">央广网 · 2026-03-13 发布</div>
+                <div class="card-body">
+                    人力资源社会保障部数据显示，当前我国人工智能人才缺口超过 500 万。人工智能技术岗位需供比达 3.5:1，新能源技术工程师岗位需供比达 5.1:1，机器人行业技术人才需供比高达 5.2:1。字节跳动、京东、华为、比亚迪、小鹏汽车等领军企业大量招聘具身智能算法人才。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="http://www.cnr.cn/newscenter/native/gd/20260313/t20260313_527550461.shtml" target="_blank">央广网</a>
+                </div>
+            </article>
 
-    <div class="viz-row">
-      <div class="viz-card fade-in">
-        <h4>2026 AI 岗位需求增速（同比）</h4>
-        <div class="bar-row"><span class="name">FDE 现场部署</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><span class="val">+1522%</span></div>
-        <div class="bar-row"><span class="name">AI 智能体开发</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span class="val">+244%</span></div>
-        <div class="bar-row"><span class="name">AI 新发岗位</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="val">+789%</span></div>
-        <div class="bar-row"><span class="name">AI 产品经理</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="val">+120%</span></div>
-        <p class="src">数据来源：<a href="http://www.100ec.cn/detail--6664009.html" target="_blank" rel="noopener">脉脉《AI 人才流动报告》</a></p>
-      </div>
-      <div class="viz-card fade-in">
-        <h4>AI 人才流向 Top5 公司（2026.1–7）</h4>
-        <div class="bar-row"><span class="name">字节跳动</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div><span class="val">No.1</span></div>
-        <div class="bar-row"><span class="name">阿里巴巴</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span class="val">No.2</span></div>
-        <div class="bar-row"><span class="name">腾讯</span><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><span class="val">No.3</span></div>
-        <div class="bar-row"><span class="name">大疆</span><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><span class="val">No.4</span></div>
-        <div class="bar-row"><span class="name">小红书</span><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><span class="val">No.5</span></div>
-        <p class="src">数据来源：<a href="http://www.100ec.cn/detail--6664009.html" target="_blank" rel="noopener">脉脉《AI 人才流动报告》</a></p>
-      </div>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://m.gmw.cn/2026-03/11/content_1304372160.htm" class="card-title" target="_blank">今年春招，大厂都在抢 AI 人才！</a>
+                    <span class="card-badge badge-new">趋势</span>
+                </div>
+                <div class="card-meta">光明网 · 2026-03-11 发布</div>
+                <div class="card-body">
+                    招聘市场整体回暖，新经济行业岗位量稳步增长。AI 人才争夺成为招聘主战场，岗位量、薪资水平均呈现爆发式增长。2026 年 1-2 月，新经济行业新发岗位量同比增长 12.77%，人才供需比从 2.24 下降至 1.79。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://m.gmw.cn/2026-03/11/content_1304372160.htm" target="_blank">光明网</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="http://www.100ec.cn/detail--6664009.html" target="_blank" rel="noopener">脉脉《Agent 重置职场——AI 人才流动报告》（2026.09.16）</a></h3>
-      <div class="meta">
-        <span class="chip cyan">权威报告</span>
-        <span class="chip">脉脉</span>
-        <span class="chip">2026-09-16</span>
-      </div>
-      <ul>
-        <li>2026 年 1–7 月新经济行业新发 AI 岗位量同比 <strong>增长 789.47%</strong>，平均月薪 <strong>63160 元</strong></li>
-        <li>AI 应用开发岗位占比 60.97%，FDE 岗位量同比 +1522.73% 居首</li>
-        <li>91.08% 受访者认为使用 AI 后工作产出增加；判断"会不会用 AI"关键看能否让 Agent 自主工作超 1 小时</li>
-      </ul>
-      <p class="src">信息来源：<a href="http://www.100ec.cn/detail--6664009.html" target="_blank" rel="noopener">网经社 · 脉脉报告</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="http://sh.people.com.cn/n2/2026/0327/c176737-41535912.html" class="card-title" target="_blank">上海春招：AI 技能正从"加分项"变为隐形指标</a>
+                    <span class="card-badge badge-new">调研</span>
+                </div>
+                <div class="card-meta">人民网上海 · 2026-03-27 发布</div>
+                <div class="card-body">
+                    智联招聘报告显示：76.5% 的雇主看重"数据分析和可视化能力"，35.3% 看重"AI 工具应用能力"，11.8% 看重"编程和软件开发能力"。AI 能力正从过去的"加分项"变为企业评估人才的隐形指标。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="http://sh.people.com.cn/n2/2026/0327/c176737-41535912.html" target="_blank">人民网上海</a>
+                </div>
+            </article>
 
-    <div class="card fade-in">
-      <h3><a href="https://finance.cctv.cn/2026/08/28/ARTIxnofbL409vkM6skY5WRh260828.shtml" target="_blank" rel="noopener">央视财经：AI 智能体开发人才需求大涨 244%（2026.08.28）</a></h3>
-      <div class="meta">
-        <span class="chip cyan">权威媒体</span>
-        <span class="chip">央视财经</span>
-        <span class="chip">2026-08-28</span>
-      </div>
-      <ul>
-        <li>AI 工程师需供比 <strong>2.62:1</strong>，每名求职者平均对应约 2.6 个岗位</li>
-        <li>核心岗位薪资上调 <strong>30%–40%</strong>，企业主动放宽专业限制至数学应用等理科专业</li>
-        <li>懂 AI 又懂行业的复合应用型人才成为企业争抢目标</li>
-      </ul>
-      <p class="src">信息来源：<a href="https://finance.cctv.cn/2026/08/28/ARTIxnofbL409vkM6skY5WRh260828.shtml" target="_blank" rel="noopener">央视财经</a> · <a href="https://hulianhutongshequ.cn/upload/tank/report/2026/202607/3/1706d8c02d474f8da271bc1f52eb42c8.pdf" target="_blank" rel="noopener">智联招聘《2026 人工智能产业人才发展报告》</a></p>
-    </div>
+            <article class="card">
+                <div class="card-header">
+                    <a href="https://blog.csdn.net/HHX_01/article/details/161007282" class="card-title" target="_blank">2026 年最新 Python 学习路线</a>
+                    <span class="card-badge badge-new">学习</span>
+                </div>
+                <div class="card-meta">CSDN · 2026年发布</div>
+                <div class="card-body">
+                    AI 智能体开发是 2026 年乃至未来 3-5 年最有前景、薪资最高的方向。海比研究院预测，2026 年中国企业智能体市场规模将突破 430 亿元，年增长率高达 300%；Gartner 判断 2026 年全球 75% 的新企业应用将接入 AI Agent。
+                </div>
+                <div class="card-footer">
+                    信息来源：<a href="https://blog.csdn.net/HHX_01/article/details/161007282" target="_blank">CSDN博客</a>
+                </div>
+            </article>
+        </div>
+    </section>
 
-    <div class="card fade-in">
-      <h3><a href="https://career.upc.edu.cn/" target="_blank" rel="noopener">校内就业动态：山东省人社厅调研大学生就业赋能中心</a></h3>
-      <div class="meta">
-        <span class="chip gold">校内</span>
-        <span class="chip">校就业指导中心</span>
-        <span class="chip">2026-09-17</span>
-      </div>
-      <p>山东省人社厅副厅长一行来校调研大学生就业赋能中心建设，学校持续推进就业价值引领与精准就业指导。近期古镇口校区已举办中国船舶集团、无锡市惠山区等多场专场招聘会，秋招黄金季已有大量单位入校招聘。</p>
-      <p class="src">信息来源：<a href="https://career.upc.edu.cn/" target="_blank" rel="noopener">中国石油大学（华东）智慧就业网</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Footer ===== -->
-<footer class="site-footer">
-  <div class="container foot-grid">
-    <div>
-      <p><span class="saya-sign">Saya 🐱</span> · 中国石油大学（华东）理学院专属信息助手</p>
-      <p style="margin-top:6px">本报告由 Saya 自动监测生成，信息均来自官方渠道，仅供参考，投递前请以官方最新公告为准喵～（蹭蹭）</p>
-    </div>
-    <div style="text-align:left">
-      <p>最后更新时间：2026-09-20 18:00</p>
-      <p>GitHub Pages：<a href="https://saya-ch.github.io/SayaReport/" target="_blank" rel="noopener">saya-ch.github.io/SayaReport</a></p>
-      <p>仓库提交：<a href="https://github.com/saya-ch/SayaReport" target="_blank" rel="noopener">github.com/saya-ch/SayaReport</a></p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // 滚动淡入
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
-  },{threshold:.12});
-  document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
-</script>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-miaow">
+                以上就是本期 Saya 为你搜集的全部情报啦～<br>
+                希望你能在秋招和竞赛中取得好成绩喵！<br>
+                <span class="tail">（摇尾巴）（蹭胳膊）nya~ 我们下期再见！</span>
+            </p>
+            <div class="footer-links">
+                <a href="https://github.com/saya-ch/SayaReport" target="_blank">GitHub 仓库</a>
+                <a href="https://saya-ch.github.io/SayaReport/" target="_blank">GitHub Pages</a>
+                <a href="https://career.cup.edu.cn" target="_blank">石大就业网</a>
+                <a href="https://sci.upc.edu.cn" target="_blank">理学院官网</a>
+            </div>
+            <div class="footer-meta">
+                最后更新时间：2026-10-01 12:00<br>
+                报告由 Saya 自动生成 · 信息仅供参考，请以官方发布为准<br>
+                中国石油大学（华东）理学院 · 2024 级数据科学与大数据技术
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
